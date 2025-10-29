@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlaq3f3hiu07f"
-path="res://.godot/imported/godotwaka.png-ef0518417b4f997d237759e5551dd05d.ctex"
+uid="uid://boay3g8wrjaip"
+path="res://.godot/imported/scifi_tilesheet@2.png-5fc23bd15b2c82c33d9102e156778489.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/godotwaka.png"
-dest_files=["res://.godot/imported/godotwaka.png-ef0518417b4f997d237759e5551dd05d.ctex"]
+source_file="res://Assets/Tilesets/scifi_tilesheet@2.png"
+dest_files=["res://.godot/imported/scifi_tilesheet@2.png-5fc23bd15b2c82c33d9102e156778489.ctex"]
 
 [params]
 
