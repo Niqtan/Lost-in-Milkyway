@@ -1,7 +1,11 @@
+class_name Main
 extends Node
 
-var money = 67
-var waves = 0
-var mobs_left = 0
-var number_mobs_per_wave = [5,6,10,20,40,0]
-var wave_speed = [1,1, 0.5, ]
+@export var tower_packed_scene: PackedScene = null
+@export var building_manager: BuildManager = null
+@onready var tile_map_layer: TileMapLayer = $Map1 
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_mouse"):
+		var cell_position: Vector2i = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
+		building_manager.place_tower(cell_position, tower_packed_scene)

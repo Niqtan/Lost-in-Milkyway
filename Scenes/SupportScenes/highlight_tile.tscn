@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://df64h7kxlj1qe"]
+
+[ext_resource type="Script" uid="uid://b4puooy858vub" path="res://Scenes/SupportScenes/highlight_tile.gd" id="1_kkywi"]
+[ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/scifiUnit_01.png" id="2_g4ur2"]
+
+[node name="HighlightTile" type="Node2D"]
+script = ExtResource("1_kkywi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g4ur2")
+centered = false

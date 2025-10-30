@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2trcapqgmgs8"]
+[gd_scene load_steps=6 format=3 uid="uid://b2trcapqgmgs8"]
 
 [ext_resource type="Script" uid="uid://43lpoalbkvdh" path="res://scene_handler.gd" id="1_8qim7"]
+[ext_resource type="PackedScene" uid="uid://bsqs6dsudhmnh" path="res://Scenes/SupportScenes/troops.tscn" id="2_1lbnm"]
+[ext_resource type="PackedScene" uid="uid://dyxvg21scor2q" path="res://Scenes/Maps/map_1.tscn" id="2_qjdn2"]
+[ext_resource type="PackedScene" uid="uid://cyco7e3aw7t1b" path="res://Scenes/UIScenes/build_manager.tscn" id="3_1lbnm"]
+[ext_resource type="PackedScene" uid="uid://df64h7kxlj1qe" path="res://Scenes/SupportScenes/highlight_tile.tscn" id="3_cidb5"]
 
-[node name="SceneHandler" type="Node"]
+[node name="SceneHandler" type="Node" node_paths=PackedStringArray("building_manager")]
 script = ExtResource("1_8qim7")
+tower_packed_scene = ExtResource("2_1lbnm")
+building_manager = NodePath("BuildManager")
+
+[node name="BuildManager" parent="." node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("3_1lbnm")]
+tile_map_layer = NodePath("../Map1")
+
+[node name="Map1" parent="." instance=ExtResource("2_qjdn2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(431, 318)
+
+[node name="HighlightTile" parent="." instance=ExtResource("3_cidb5")]
