@@ -3,7 +3,7 @@ extends Node
 
 @export var tower_packed_scene: PackedScene = null
 @export var building_manager: BuildManager = null
-@onready var tile_map_layer: TileMapLayer = $Map1 
+@onready var tile_map_layer: TileMapLayer = $Foreground
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):

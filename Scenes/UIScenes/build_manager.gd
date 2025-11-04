@@ -16,7 +16,7 @@ func place_tower(cell_position: Vector2i, tower_packed_scene: PackedScene) -> vo
 	var new_tower: Node2D = tower_packed_scene.instantiate()
 	add_child(new_tower)
 	
-	new_tower.position = cell_position * 64
+	new_tower.position = cell_position * 16
 	new_tower.add_to_group(TOWER_GROUP)
 	used_tiles.append(cell_position)
 	

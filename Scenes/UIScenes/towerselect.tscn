@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6xset0g8tu6"]
+
+[ext_resource type="Script" uid="uid://ckqsv8qcisi1w" path="res://towerselectpanel.gd" id="1_wyf2l"]
+[ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/scifiUnit_01.png" id="2_6wh6o"]
+
+[node name="Root UI Scene" type="CanvasLayer"]
+script = ExtResource("1_wyf2l")
+
+[node name="HUD" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TowerSelectPanel" type="MarginContainer" parent="HUD"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/TowerSelectPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Unit1" type="Button" parent="HUD/TowerSelectPanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/TowerSelectPanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_6wh6o")
