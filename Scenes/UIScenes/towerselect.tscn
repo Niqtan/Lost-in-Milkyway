@@ -18,9 +18,8 @@ layout_mode = 2
 
 [node name="TowerSelectPanel" type="MarginContainer" parent="HUD"]
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TowerSelectPanel"]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HUD/TowerSelectPanel"]
 layout_mode = 2
@@ -46,6 +45,9 @@ size_flags_vertical = 4
 layout_mode = 2
 
 [node name="Unit3" type="Button" parent="HUD/TowerSelectPanel/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TowerSelectPanel"]
 layout_mode = 2
 
 [node name="Gameplay Info" type="MarginContainer" parent="HUD"]
