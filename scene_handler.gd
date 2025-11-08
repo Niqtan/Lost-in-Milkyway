@@ -1,7 +1,7 @@
 class_name Main
 extends Node
 
-@export var tower_packed_scene: PackedScene = null
+@export var tower_packed_scene: PackedScene = TowerPlacer.selected_tower
 @export var building_manager: BuildManager = null
 @onready var tile_map_layer: TileMapLayer = $Foreground
 

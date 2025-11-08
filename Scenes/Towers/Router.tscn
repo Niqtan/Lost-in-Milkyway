@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bljmowpf6gjbt"]
+
+[ext_resource type="Texture2D" uid="uid://cl3x2t3rxxuuq" path="res://Assets/Towers/scifiUnit_19.png" id="1_figws"]
+
+[node name="Router" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_figws")
+centered = false
