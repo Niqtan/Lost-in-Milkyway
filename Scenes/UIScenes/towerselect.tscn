@@ -22,21 +22,26 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+mouse_filter = 0
 theme_override_constants/margin_bottom = 50
 
 [node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="HUD/OverallTowerSelectPanel"]
 layout_mode = 2
+mouse_filter = 0
 theme_override_constants/separation = 20
 
 [node name="Snowballer" type="Button" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel"]
+z_index = 4096
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Like and subscribe"
 script = ExtResource("2_6hfh2")
+tower_type = "snowballer"
 
 [node name="Snowballer" type="TextureRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Snowballer"]
-z_index = 4096
+z_index = -1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 40.0
@@ -45,6 +50,7 @@ texture = ExtResource("3_kt7wq")
 expand_mode = 5
 
 [node name="Background" type="NinePatchRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Snowballer"]
+z_index = -1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -66,6 +72,7 @@ patch_margin_bottom = 4
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 script = ExtResource("2_6hfh2")
+tower_type = "archer"
 
 [node name="Background" type="NinePatchRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Archer"]
 custom_minimum_size = Vector2(100, 100)
@@ -88,6 +95,7 @@ patch_margin_bottom = 4
 [node name="Archer" type="TextureRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Archer"]
 z_index = 4096
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_of5j8")
@@ -97,6 +105,7 @@ expand_mode = 5
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 script = ExtResource("2_6hfh2")
+tower_type = "router"
 
 [node name="Background" type="NinePatchRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Router"]
 custom_minimum_size = Vector2(100, 100)
@@ -119,6 +128,7 @@ patch_margin_bottom = 4
 [node name="Router" type="TextureRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Router"]
 z_index = 4096
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_tpqgc")

@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsqs6dsudhmnh"]
+[gd_scene load_steps=2 format=3 uid="uid://bsqs6dsudhmnh"]
 
-[ext_resource type="Texture2D" uid="uid://t2xurk4285ar" path="res://Assets/Towers/scifiUnit_33.png" id="1_10ylc"]
 [ext_resource type="Script" uid="uid://2extstmhcri0" path="res://Scenes/SupportScenes/troops.gd" id="1_gk3b7"]
 
-[node name="Troops" type="Node2D"]
+[node name="TroopManager" type="Node2D"]
 script = ExtResource("1_gk3b7")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.390625, 0.296875)
-texture = ExtResource("1_10ylc")
-centered = false
