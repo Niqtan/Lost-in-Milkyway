@@ -14,20 +14,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Controls UI" type="MarginContainer" parent="HUD"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="OverallTowerSelectPanel" type="MarginContainer" parent="HUD"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-mouse_filter = 0
+mouse_filter = 2
 theme_override_constants/margin_bottom = 50
 
 [node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="HUD/OverallTowerSelectPanel"]
 layout_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 theme_override_constants/separation = 20
 
 [node name="Snowballer" type="Button" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel"]
@@ -36,6 +38,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+action_mode = 0
 text = "Like and subscribe"
 script = ExtResource("2_6hfh2")
 tower_type = "snowballer"
@@ -46,6 +49,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("3_kt7wq")
 expand_mode = 5
 
@@ -71,6 +75,7 @@ patch_margin_bottom = 4
 [node name="Archer" type="Button" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+action_mode = 0
 script = ExtResource("2_6hfh2")
 tower_type = "archer"
 
@@ -98,12 +103,14 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("5_of5j8")
 expand_mode = 5
 
 [node name="Router" type="Button" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+action_mode = 0
 script = ExtResource("2_6hfh2")
 tower_type = "router"
 
@@ -131,6 +138,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("6_tpqgc")
 expand_mode = 5
 

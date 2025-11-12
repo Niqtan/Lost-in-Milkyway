@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkgdeasryoc4b"]
+
+[ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://towerselect.tscn" id="1_1jisu"]
+
+[node name="Gameplay UI" instance=ExtResource("1_1jisu")]
+
+[node name="Archer" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Archer" index="1"]
+mouse_filter = 2
+
+[node name="Router" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Router" index="1"]
+mouse_filter = 2

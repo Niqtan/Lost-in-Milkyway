@@ -1,8 +1,3 @@
-"""
-This script mainly exists 
-
-"""
-
 extends Button
 
 @export var tower_type: String = ""

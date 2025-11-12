@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://6h8r7y8xhofp"]
+
+[ext_resource type="Script" uid="uid://bd1fpdoupk3k7" path="res://test_button.gd" id="1_4ubf3"]
+
+[node name="TestButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "like and sub"
+script = ExtResource("1_4ubf3")
