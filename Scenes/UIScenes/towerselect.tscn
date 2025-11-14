@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cl3x2t3rxxuuq" path="res://Assets/Towers/scifiUnit_19.png" id="6_tpqgc"]
 
 [node name="Gameplay UI" type="CanvasLayer"]
+follow_viewport_enabled = true
 
 [node name="HUD" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -33,18 +34,15 @@ mouse_filter = 2
 theme_override_constants/separation = 20
 
 [node name="Snowballer" type="Button" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel"]
-z_index = 4096
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 action_mode = 0
-text = "Like and subscribe"
 script = ExtResource("2_6hfh2")
 tower_type = "snowballer"
 
 [node name="Snowballer" type="TextureRect" parent="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Snowballer"]
-z_index = -1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 40.0
@@ -144,17 +142,22 @@ expand_mode = 5
 
 [node name="Gameplay Info" type="MarginContainer" parent="HUD"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Notifications" type="Popup" parent="HUD"]
+visible = true
 
 [node name="Popup Menus" type="MarginContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="SettingsPopUp" type="MarginContainer" parent="Popup Menus"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="PauseMenu" type="MarginContainer" parent="Popup Menus"]
 layout_mode = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="HUD/OverallTowerSelectPanel/SeparationTowerSelectPanel/Snowballer" to="." method="_on_button_pressed"]

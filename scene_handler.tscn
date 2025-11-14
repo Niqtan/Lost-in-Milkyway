@@ -15,10 +15,6 @@
 script = ExtResource("1_8qim7")
 building_manager = NodePath("BuildManager")
 
-[node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
-
-[node name="TowerPlacerManager" parent="Gameplay UI" instance=ExtResource("10_6b8lh")]
-
 [node name="BuildManager" parent="." node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("3_1lbnm")]
 tile_map_layer = NodePath("../Foreground")
 
@@ -47,3 +43,7 @@ target_pos = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(399, 213)
+
+[node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
+
+[node name="TowerPlacerManager" parent="Gameplay UI" instance=ExtResource("10_6b8lh")]
