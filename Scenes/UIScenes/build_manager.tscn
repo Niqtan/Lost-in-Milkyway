@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://3soiatnq75v5" path="res://Scenes/UIScenes/build_manager.gd" id="1_mwff1"]
 
-[node name="BuildManager" type="Node2D"]
+[node name="BuildManager" type="Node2D" groups=["TOWER_GROUP"]]
 script = ExtResource("1_mwff1")

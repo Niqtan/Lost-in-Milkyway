@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsfmeqt7mapm"]
+[gd_scene load_steps=3 format=3 uid="uid://bsfmeqt7mapm"]
 
+[ext_resource type="Script" uid="uid://ciyeymh0awbnf" path="res://Scenes/Towers/tower_behavior.gd" id="1_61twp"]
 [ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/scifiUnit_01.png" id="1_oyyxr"]
 
 [node name="Snowballer" type="Node2D"]
+script = ExtResource("1_61twp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_oyyxr")

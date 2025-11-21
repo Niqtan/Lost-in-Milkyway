@@ -8,7 +8,7 @@ extends CharacterBody2D
 var path_array: Array[Vector2i] = []
 
 func _ready() -> void:
-	path_array = pathfinding_algorithm.get_valid_path(global_position / 16, target_pos.position / 16)
+	path_array = pathfinding_algorithm.get_valid_path(global_position / 64, target_pos.position / 64)
 	
 func _process(delta: float) -> void:
 	get_path_to_position()

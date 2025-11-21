@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://towerselect.tscn" id="9_0d6uv"]
 [ext_resource type="PackedScene" uid="uid://cvt2hqkv0iet0" path="res://Scenes/SupportScenes/tower_placer_manager.tscn" id="10_6b8lh"]
 
-[node name="SceneHandler" type="Node" node_paths=PackedStringArray("building_manager")]
+[node name="SceneHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager")]
 script = ExtResource("1_8qim7")
+tower_placer_manager = NodePath("Gameplay UI/TowerPlacerManager")
+highlight_tile = NodePath("HighlightTile")
 building_manager = NodePath("BuildManager")
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("3_1lbnm")]
@@ -24,10 +26,6 @@ p = ExtResource("5_p4hv5")
 
 [node name="Foreground" parent="." instance=ExtResource("2_qjdn2")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(291, 173)
-zoom = Vector2(-0.645, -0.645)
-
 [node name="HighlightTile" parent="." instance=ExtResource("3_cidb5")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("enemy_spawner") instance=ExtResource("6_rp770")]
@@ -37,13 +35,17 @@ enemy_spawner = NodePath("Enemy Spawner")
 [node name="Enemy Spawner" parent="WaveManager" instance=ExtResource("7_a6qyh")]
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("pathfinding_algorithm", "target_pos") instance=ExtResource("5_p4hv5")]
-position = Vector2(25, 128)
+position = Vector2(351, 32)
 pathfinding_algorithm = NodePath("../PathFindingManager")
 target_pos = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(399, 213)
+position = Vector2(1127, 615)
 
 [node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
+
+[node name="Camera2D" type="Camera2D" parent="Gameplay UI"]
+position = Vector2(743, 414)
+zoom = Vector2(0.865, 0.865)
 
 [node name="TowerPlacerManager" parent="Gameplay UI" instance=ExtResource("10_6b8lh")]
