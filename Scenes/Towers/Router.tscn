@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bljmowpf6gjbt"]
 
-[ext_resource type="Script" uid="uid://ciyeymh0awbnf" path="res://Scenes/Towers/tower_behavior.gd" id="1_ckb7f"]
+[ext_resource type="Script" uid="uid://c8lgyjxl7bj5t" path="res://Scenes/Towers/router.gd" id="1_ckb7f"]
 [ext_resource type="Texture2D" uid="uid://cl3x2t3rxxuuq" path="res://Assets/Towers/scifiUnit_19.png" id="1_figws"]
 
 [node name="Router" type="Node2D"]

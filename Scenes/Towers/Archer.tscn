@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bylfgnym7cbug"]
 
-[ext_resource type="Script" uid="uid://ciyeymh0awbnf" path="res://Scenes/Towers/tower_behavior.gd" id="1_e08k6"]
+[ext_resource type="Script" uid="uid://ci07xe6u6d0l3" path="res://Scenes/Towers/archer_tower.gd" id="1_e08k6"]
 [ext_resource type="Texture2D" uid="uid://dr4jwo17q7avp" path="res://Assets/Towers/scifiUnit_09.png" id="1_ttf4a"]
 
 [node name="Archer" type="Node2D"]

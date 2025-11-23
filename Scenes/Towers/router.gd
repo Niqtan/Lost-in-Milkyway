@@ -1,13 +1,12 @@
-class_name ArcherTower extends BaseTower
+class_name Router extends BaseTower
 
 # Define how the archer tower will attack
 
 @onready var sprite: Sprite2D = get_node("Sprite2D")
 
-
 func _ready():
 	# Set the attack cooldown
-	attack_cooldown = 0.8
+	attack_cooldown = 1.5
 
 func attack_enemies(target: Enemy) -> void:
 	# Change the tower's rotation
