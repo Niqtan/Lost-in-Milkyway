@@ -1,16 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh5uv5ek2gchr"]
+[gd_scene load_steps=8 format=3 uid="uid://bh5uv5ek2gchr"]
 
 [ext_resource type="Script" uid="uid://cdqlpan62ljg" path="res://Scenes/MainScenes/enemy.gd" id="1_qtwnk"]
-[ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/scifiUnit_01.png" id="2_qtwnk"]
+[ext_resource type="Texture2D" uid="uid://c1i0oe55c30f5" path="res://Assets/Towers/Enemies/Void Bats/void_bats1.png" id="2_fuhqj"]
+[ext_resource type="Texture2D" uid="uid://yem7ckv1t3hp" path="res://Assets/Towers/Enemies/Void Bats/void_bats2.png" id="3_s7qg4"]
+[ext_resource type="Texture2D" uid="uid://81exvbj8qirr" path="res://Assets/Towers/Enemies/Void Bats/void_bats3.png" id="4_svrot"]
+[ext_resource type="Texture2D" uid="uid://2dgy6kudgfpo" path="res://Assets/Towers/Enemies/Void Bats/void_bats4.png" id="5_bsfgx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbruj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fuhqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s7qg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_svrot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bsfgx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2m4j"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["units"]]
 script = ExtResource("1_qtwnk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 4096
-texture = ExtResource("2_qtwnk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sbruj")
+frame_progress = 0.129863
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l2m4j")

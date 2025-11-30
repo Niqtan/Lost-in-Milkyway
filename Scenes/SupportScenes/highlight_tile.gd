@@ -12,9 +12,9 @@ func _process(delta: float) -> void:
 func set_sprite(texture_scene: PackedScene):
 	var scene_instance = texture_scene.instantiate()
 	
-	var sprite_node = scene_instance.get_node("Sprite2D")
-	var texture = sprite_node.texture
+	var sprite_node = scene_instance.get_node("AnimatedSprite2D")
 	
-	$Sprite2D.texture = texture
+	$AnimatedSprite2D.sprite_frames = sprite_node.sprite_frames
+	$AnimatedSprite2D.play("idle")
 	
 	scene_instance.queue_free()

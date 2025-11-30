@@ -44,8 +44,4 @@ position = Vector2(1127, 615)
 
 [node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
 
-[node name="Camera2D" type="Camera2D" parent="Gameplay UI"]
-position = Vector2(743, 414)
-zoom = Vector2(0.865, 0.865)
-
 [node name="TowerPlacerManager" parent="Gameplay UI" instance=ExtResource("10_6b8lh")]

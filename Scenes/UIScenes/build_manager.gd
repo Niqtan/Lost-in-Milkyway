@@ -5,7 +5,7 @@ class_name BuildManager
 extends Node2D
 
 @export var tile_map_layer: TileMapLayer = null 
-
+@onready var pathfinding_node: PathFindingManager = $"../PathFindingManager"
 
 const is_buildable: String = "buildable"
 const TOWER_GROUP: String = "TOWER_GROUP"
@@ -24,6 +24,18 @@ func place_tower(cell_position: Vector2i, tower_packed_scene: PackedScene) -> vo
 	new_tower.z_index = 1 # Puts the tower in front
 	new_tower.add_to_group(TOWER_GROUP)
 	used_tiles.append(cell_position)
+	
+	# Updates the tiles the enemies
+	# Can walk on 
+	
+	pathfinding_node.update_cell_cost(cell_position)
+	print("Tower palced at grid: ", cell_position, "with cost 10")
+	# Recalculate the path array afterwards
+	var enemies = get_tree().get_nodes_in_group("units")
+	
+	for enemy in enemies:
+		enemy.get_path_array()
+	
 	
 func check_valid_tower_placement(cell_position: Vector2i) -> bool:
 	if used_tiles.has(cell_position):

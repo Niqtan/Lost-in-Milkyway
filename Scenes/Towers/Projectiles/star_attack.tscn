@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgser2dvmea1u"]
+
+[ext_resource type="Texture2D" uid="uid://o5o1uiplh1ni" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack1.png" id="1_lu7jl"]
+[ext_resource type="Texture2D" uid="uid://bitki20uswi0p" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack2.png" id="2_t2dac"]
+[ext_resource type="Texture2D" uid="uid://dyn6ifgk2dd7x" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack3.png" id="3_fleig"]
+[ext_resource type="Texture2D" uid="uid://daqemm6404eok" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack4.png" id="4_3202r"]
+[ext_resource type="Texture2D" uid="uid://c4c2mdlpwmc7a" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack5.png" id="5_iyvdv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2eh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lu7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t2dac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fleig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3202r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iyvdv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h2eh5")
+frame_progress = 0.550045
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Node" type="Node" parent="."]

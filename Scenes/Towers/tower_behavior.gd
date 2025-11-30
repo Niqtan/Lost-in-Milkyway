@@ -13,7 +13,6 @@ var current_target: Enemy = null
 var cooldown_timer: float = 0.0
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	"""
@@ -22,7 +21,6 @@ func _process(delta: float) -> void:
 	2. Get the stats of the class we're looking for
 	3. Use those stats to define tower priority
 	"""
-	print("Scanning for enemies...")
 	scan_for_enemies()
 	update_target()
 	
@@ -80,6 +78,3 @@ func scan_for_enemies() -> void:
 			var distance = global_position.distance_to(enemy.global_position)
 			if distance <= tower_range:
 				enemies_in_range.append(enemy)
-				print("Enemy scanned!")
-			else:
-				print("No enemies scanned!")

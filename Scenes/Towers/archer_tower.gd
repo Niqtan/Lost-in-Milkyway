@@ -2,7 +2,7 @@ class_name ArcherTower extends BaseTower
 
 # Define how the archer tower will attack
 
-@onready var sprite: Sprite2D = get_node("Sprite2D")
+@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 
 
 func _ready():
@@ -18,13 +18,16 @@ func attack_enemies(target: Enemy) -> void:
 	if target:
 		# Need to make it so that it doesn't cross 
 		# other tiles
+		animated_sprite.play("attack")
 		var direction = target.global_position - global_position
 		var angle = direction.angle()
 		var base_angle = rad_to_deg(angle)
 		
 		if abs(base_angle) > 90:
-			sprite.flip_h = true
-			sprite.rotation = deg_to_rad(base_angle - 180 if base_angle > 0 else base_angle + 180)
+			animated_sprite.flip_h = true
+			animated_sprite.rotation = deg_to_rad(base_angle - 180 if base_angle > 0 else base_angle + 180)
 		else:
-			sprite.flip_h = false
-			sprite.rotation = angle
+			animated_sprite.flip_h = false
+			animated_sprite.rotation = angle
+	else:
+		animated_sprite.play("idle")

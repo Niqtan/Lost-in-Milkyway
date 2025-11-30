@@ -44,7 +44,10 @@ func update_terrain_movement_values() -> void:
 			astar_grid.set_point_weight_scale(i, get_cell_movement_cost(i))
 		else:
 			astar_grid.set_point_solid(i, true)
-			
+
+func update_cell_cost(cell_position: Vector2i) -> void:
+	astar_grid.set_point_weight_scale(cell_position, 10)
+		
 func get_valid_path(start_position: Vector2i, end_position: Vector2i) -> Array[Vector2i]:
 	path_array.clear()
 	
