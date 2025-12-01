@@ -1,44 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgser2dvmea1u"]
+[gd_scene load_steps=9 format=3 uid="uid://dgser2dvmea1u"]
 
-[ext_resource type="Texture2D" uid="uid://o5o1uiplh1ni" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack1.png" id="1_lu7jl"]
-[ext_resource type="Texture2D" uid="uid://bitki20uswi0p" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack2.png" id="2_t2dac"]
-[ext_resource type="Texture2D" uid="uid://dyn6ifgk2dd7x" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack3.png" id="3_fleig"]
-[ext_resource type="Texture2D" uid="uid://daqemm6404eok" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack4.png" id="4_3202r"]
-[ext_resource type="Texture2D" uid="uid://c4c2mdlpwmc7a" path="res://Assets/Tower Attacks/Lightning Constellation/Animated Constellation attack5.png" id="5_iyvdv"]
+[ext_resource type="Script" uid="uid://bmvdqwg6qher4" path="res://Scenes/Towers/Projectiles/lightning_attack.gd" id="1_t2dac"]
+[ext_resource type="Texture2D" uid="uid://b03fkox6615tr" path="res://Assets/Tower Attacks/Lightning Constellation/Star Lightning Attack.png" id="2_aksi2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4my1b"]
+atlas = ExtResource("2_aksi2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7thfr"]
+atlas = ExtResource("2_aksi2")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu7jl"]
+atlas = ExtResource("2_aksi2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2dac"]
+atlas = ExtResource("2_aksi2")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fleig"]
+atlas = ExtResource("2_aksi2")
+region = Rect2(64, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h2eh5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_lu7jl")
+"texture": SubResource("AtlasTexture_4my1b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_t2dac")
+"texture": SubResource("AtlasTexture_7thfr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_fleig")
+"texture": SubResource("AtlasTexture_lu7jl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3202r")
+"texture": SubResource("AtlasTexture_t2dac")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_iyvdv")
+"texture": SubResource("AtlasTexture_fleig")
 }],
 "loop": true,
-"name": &"default",
+"name": &"strike",
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Constellation Lightning Attack" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_t2dac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h2eh5")
-frame_progress = 0.550045
+animation = &"strike"
+frame_progress = 0.723767
 
-[node name="Marker2D" type="Marker2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
-[node name="Node" type="Node" parent="."]
+[node name="LightningContainer" type="Node" parent="."]

@@ -39,3 +39,10 @@ func get_path_to_position() -> void:
 	else:
 		velocity = Vector2.ZERO
 	
+# Enemy stats
+
+func take_damage(damage: int):
+	enemy_health - damage
+	
+	print(enemy_health)
+	return enemy_health

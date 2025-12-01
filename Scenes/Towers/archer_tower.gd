@@ -3,6 +3,7 @@ class_name ArcherTower extends BaseTower
 # Define how the archer tower will attack
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+var constellation_attack = preload("res://Scenes/Towers/Projectiles/star_attack.tscn")
 
 
 func _ready():
@@ -18,16 +19,11 @@ func attack_enemies(target: Enemy) -> void:
 	if target:
 		# Need to make it so that it doesn't cross 
 		# other tiles
-		animated_sprite.play("attack")
-		var direction = target.global_position - global_position
-		var angle = direction.angle()
-		var base_angle = rad_to_deg(angle)
+		var constellation_attack_scene = constellation_attack.instantiate()
 		
-		if abs(base_angle) > 90:
-			animated_sprite.flip_h = true
-			animated_sprite.rotation = deg_to_rad(base_angle - 180 if base_angle > 0 else base_angle + 180)
-		else:
-			animated_sprite.flip_h = false
-			animated_sprite.rotation = angle
-	else:
-		animated_sprite.play("idle")
+		get_parent().add_child(constellation_attack_scene)
+		constellation_attack_scene.z_index = 100
+		constellation_attack_scene.global_position = $Aim.global_position
+		constellation_attack_scene.target = target
+		
+		self.look_at(target.global_position)
