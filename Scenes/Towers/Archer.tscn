@@ -31,16 +31,14 @@ animations = [{
 }]
 
 [node name="SquidTower" type="StaticBody2D"]
-rotation = 1.5708
-scale = Vector2(2, 2)
 script = ExtResource("1_e08k6")
 
 [node name="Aim" type="Marker2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(33, 36)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0sqag")
-animation = &"idle"
-frame_progress = 0.457427
+animation = &"attack"
+offset = Vector2(32, 32)
 
 [node name="LightningContainer" type="Node" parent="."]

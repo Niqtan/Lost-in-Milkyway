@@ -3,6 +3,7 @@ class_name ArcherTower extends BaseTower
 # Define how the archer tower will attack
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+
 var constellation_attack = preload("res://Scenes/Towers/Projectiles/star_attack.tscn")
 
 
@@ -26,4 +27,4 @@ func attack_enemies(target: Enemy) -> void:
 		constellation_attack_scene.global_position = $Aim.global_position
 		constellation_attack_scene.target = target
 		
-		self.look_at(target.global_position)
+		$AnimatedSprite2D.flip_h = target.global_position.x < global_position.x

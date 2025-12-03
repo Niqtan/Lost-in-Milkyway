@@ -14,7 +14,10 @@ func set_sprite(texture_scene: PackedScene):
 	
 	var sprite_node = scene_instance.get_node("AnimatedSprite2D")
 	
+	$AnimatedSprite2D.offset = Vector2(32, 32)
 	$AnimatedSprite2D.sprite_frames = sprite_node.sprite_frames
 	$AnimatedSprite2D.play("idle")
+	
+	sprite_node.offset = Vector2(32, 32)
 	
 	scene_instance.queue_free()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsfmeqt7mapm"]
 
 [ext_resource type="Script" uid="uid://br4004ek1u0p3" path="res://Scenes/Towers/snowballer.gd" id="1_61twp"]
-[ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/scifiUnit_01.png" id="1_oyyxr"]
+[ext_resource type="Texture2D" path="res://Assets/Towers/scifiUnit_01.png" id="1_oyyxr"]
 
 [node name="Snowballer" type="Node2D"]
 script = ExtResource("1_61twp")
