@@ -41,8 +41,12 @@ func get_path_to_position() -> void:
 	
 # Enemy stats
 
-func take_damage(damage: int):
-	enemy_health - damage
+func take_damage(damage: float):
+	enemy_health -= damage
+	print("Enemy health: ", enemy_health)
 	
-	print(enemy_health)
-	return enemy_health
+	if enemy_health <= 0:
+		enemy_die()
+	
+func enemy_die():
+	queue_free()

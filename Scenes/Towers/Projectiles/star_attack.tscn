@@ -53,7 +53,7 @@ script = ExtResource("1_t2dac")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h2eh5")
 animation = &"strike"
-frame_progress = 0.723767
+frame_progress = 0.136469
 centered = false
 
 [node name="LightningContainer" type="Node" parent="."]

@@ -10,9 +10,16 @@ var current_target: Enemy = null
 
 #Cooldown timer for attacking an enemy
 @export var attack_cooldown: float = 1.0
-var cooldown_timer: float = 0.0
+var attack_timer: Timer
 
-
+func _ready() -> void:
+	attack_timer = Timer.new()
+	attack_timer.wait_time = attack_cooldown
+	attack_timer.one_shot = false 
+	attack_timer.timeout.connect(_on_attack_timer_timeout)
+	add_child(attack_timer)
+	attack_timer.start()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	"""
@@ -24,17 +31,21 @@ func _process(delta: float) -> void:
 	scan_for_enemies()
 	update_target()
 	
-	if current_target: 
-		cooldown_timer -= delta
-		if cooldown_timer <= 0:
-			print(current_target)
-			attack_enemies(current_target)
-			cooldown_timer = attack_cooldown
-
+	#Goodbye losing target!
+	if not current_target or not is_instance_valid(current_target):
+		on_target_lost()
 # This will vary from tower to tower
 # We most likely need to setup a manager for this
 # Since every tower has its own way of attacking
+func _on_attack_timer_timeout() -> void:
+	print("Timer fired!")
+	if current_target and is_instance_valid(current_target):
+		attack_enemies(current_target)
+
 func attack_enemies(target: Enemy) -> void:
+	pass
+
+func on_target_lost() -> void:
 	pass
 
 func update_target() -> void:
@@ -77,4 +88,9 @@ func scan_for_enemies() -> void:
 		if enemy is Enemy:
 			var distance = global_position.distance_to(enemy.global_position)
 			if distance <= tower_range:
-				enemies_in_range.append(enemy)
+				if enemy not in enemies_in_range:
+					enemies_in_range.append(enemy)
+			else:
+				enemies_in_range.erase(enemy)
+			
+			
