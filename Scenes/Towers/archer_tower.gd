@@ -9,8 +9,10 @@ var target: Enemy = null
 
 func _ready():
 	# Set the attack cooldown
-	attack_cooldown = 0.8
-
+	super._ready()
+	attack_cooldown = 2.5
+	attack_timer.wait_time = attack_cooldown
+	
 func attack_enemies(temporary_variable_target: Enemy) -> void:
 	# Change the tower's rotation
 	# To make it so that its like 
@@ -28,6 +30,13 @@ func attack_enemies(temporary_variable_target: Enemy) -> void:
 
 			$AnimatedSprite2D.play("attack")
 			$AnimatedSprite2D.flip_h = target.global_position.x < global_position.x
+			
+			await $AnimatedSprite2D.animation_looped
+			
+			if $AnimatedSprite2D.frame_changed.is_connected(_on_frame_change):
+				$AnimatedSprite2D.frame_changed.disconnect(_on_frame_change)
+			
+			$AnimatedSprite2D.play("idle")
 
 func on_target_lost() -> void:
 	#Disconnect the signal
@@ -41,10 +50,12 @@ func on_target_lost() -> void:
 	
 func _on_frame_change():
 	if target:
-		var constellation_attack_scene = constellation_attack.instantiate()
-		constellation_attack_scene.z_index = 100
-		constellation_attack_scene.global_position = $Aim.global_position
-		constellation_attack_scene.target = target
-		
 		if $AnimatedSprite2D.frame == 2:
+			var constellation_attack_scene = constellation_attack.instantiate()
+			constellation_attack_scene.z_index = 100
+			constellation_attack_scene.global_position = $Aim.global_position
+			constellation_attack_scene.target = target
+			
 			get_parent().add_child(constellation_attack_scene)
+			
+			

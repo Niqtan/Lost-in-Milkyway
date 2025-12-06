@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://dwqd1seu14t74"]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MainMenu" type="Node2D"]
+
+[node name="Overlay" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

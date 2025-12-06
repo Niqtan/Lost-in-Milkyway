@@ -19,7 +19,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -39,8 +39,7 @@ position = Vector2(33, 51.905)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0sqag")
-animation = &"idle"
-frame_progress = 0.477979
+animation = &"attack"
 offset = Vector2(32, 32)
 
 [node name="LightningContainer" type="Node" parent="."]

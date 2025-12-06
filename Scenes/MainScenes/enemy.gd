@@ -8,11 +8,16 @@ extends CharacterBody2D
 # Enemy Health
 @export var enemy_health: float = 200.0
 
-
+# Path visualization
+# Using Line2D
+@onready var path_line: Line2D = Line2D.new()
 
 var path_array: Array[Vector2i] = []
 
 func _ready() -> void:
+	path_line.width = 2
+	path_line.default_color = Color.WHITE
+	add_child(path_line)
 	get_path_array()
 
 func _process(delta: float) -> void:
@@ -26,9 +31,23 @@ func get_path_array() -> void:
 	print("Enemy at grid pos: ", global_position / 64)
 	path_array = pathfinding_algorithm.get_valid_path(current_grid_pos, target_grid_pos)
 	
+	visualize_path_array(path_array)
+	
 	if path_array.size() > 0:
 		print(path_array[0])
 
+func visualize_path_array(path_array: Array[Vector2i]) -> void:
+	# Use white dots to visualize
+	# the path array
+	
+	path_line.clear_points()
+	
+	for grid_position in path_array:
+		#World position basically means the center of a tile
+		var world_pos = Vector2(grid_position * 64 + Vector2(32, 32))
+		path_line.add_point(world_pos - global_position)
+	
+		
 func get_path_to_position() -> void:
 	if len(path_array) > 0:
 		var direction: Vector2 = global_position.direction_to(path_array[0])
