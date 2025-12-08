@@ -16,19 +16,60 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TowerSelection" type="Panel" parent="HUD"]
-custom_minimum_size = Vector2(160.415, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="OverallTowerSelectPanel" type="MarginContainer" parent="HUD/TowerSelection"]
+[node name="OverallTowerSelectPanel" type="FlowContainer" parent="HUD/TowerSelection"]
 layout_mode = 2
-offset_right = 110.0
-offset_bottom = 110.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 700.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/h_separation = 20
+alignment = 1
+
+[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel2/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel2/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
 
 [node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
 layout_mode = 2
@@ -61,6 +102,406 @@ patch_margin_right = 4
 patch_margin_bottom = 4
 
 [node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel3" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3/SeparationTowerSelectPanel2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3/SeparationTowerSelectPanel2/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel3/SeparationTowerSelectPanel2/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel4" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel4"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel4/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel4/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel5" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel5"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel5/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel5/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel6" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel6"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel6/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel6/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel7" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel7"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel7/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel7/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel8" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel8"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel8/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel8/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel9" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel9"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel9/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel9/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel10" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel10"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel10/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel10/Archer"]
+z_index = 4096
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_s24ma")
+expand_mode = 5
+
+[node name="SeparationTowerSelectPanel11" type="HBoxContainer" parent="HUD/TowerSelection/OverallTowerSelectPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Archer" type="Button" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel11"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_6hfh2")
+tower_type = "archer"
+
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel11/Archer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+texture = ExtResource("2_6wh6o")
+region_rect = Rect2(128, 64, 64, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelection/OverallTowerSelectPanel/SeparationTowerSelectPanel11/Archer"]
 z_index = 4096
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0

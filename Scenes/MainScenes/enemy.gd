@@ -11,17 +11,21 @@ extends CharacterBody2D
 # Path visualization
 # Using Line2D
 @onready var path_line: Line2D = Line2D.new()
-
 var path_array: Array[Vector2i] = []
 
+# For the star gameplay
+var current_star: Star = null
+
 func _ready() -> void:
-	path_line.width = 2
+	path_line.width = 5
 	path_line.default_color = Color.WHITE
+	path_line.z_index = 100
 	add_child(path_line)
 	get_path_array()
 
 func _process(delta: float) -> void:
 	get_path_to_position()
+	visualize_path_array(path_array)
 	$AnimatedSprite2D.play("default")
 	move_and_slide()
 	
@@ -42,11 +46,11 @@ func visualize_path_array(path_array: Array[Vector2i]) -> void:
 	
 	path_line.clear_points()
 	
-	for grid_position in path_array:
+	for world_position in path_array:
 		#World position basically means the center of a tile
-		var world_pos = Vector2(grid_position * 64 + Vector2(32, 32))
-		path_line.add_point(world_pos - global_position)
-	
+		var local_pos = Vector2(world_position) - global_position
+		path_line.add_point(local_pos)
+		
 		
 func get_path_to_position() -> void:
 	if len(path_array) > 0:
@@ -69,3 +73,7 @@ func take_damage(damage: float):
 	
 func enemy_die():
 	queue_free()
+	
+# Star
+func check_star_occupation():
+	pass
