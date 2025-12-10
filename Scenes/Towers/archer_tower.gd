@@ -3,7 +3,7 @@ class_name ArcherTower extends BaseTower
 # Define how the archer tower will attack
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
-var constellation_attack = preload("res://Scenes/Towers/Projectiles/star_attack.tscn")
+var constellation_attack = preload(Constants.SCENE_PATHS.lightning_attack)
 
 var target: Enemy = null
 

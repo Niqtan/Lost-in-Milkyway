@@ -3,6 +3,9 @@ extends Node2D
 
 
 """
+This is 3/3 of the constellation
+series of scripts
+
 This script manages how the star
 will behave.
 
@@ -21,7 +24,7 @@ var is_occupied: bool = false
 var occupying_enemy: Enemy = null
 
 @onready var sprite = $StarSprite
-@onready var particles = $Glow
+@onready var particles = $StarSprite/Glow
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,13 +34,22 @@ func occupy(enemy: Enemy) -> void:
 	if not is_occupied:
 		is_occupied = true
 		occupying_enemy = enemy
+		highlight()
+		ConstellationManager.star_occupied(self)
  
 func vacate() -> void:
 	is_occupied = false
 	occupying_enemy = null
+	unhighlight()
+	ConstellationManager.star_vacated(self)
 	
 func highlight() -> void:
-	pass
+	# Use the GPUParticles2D Node
+	# To highlight the stars
+	
+	particles.enabled = true
+	particles.energy = 1.5
+	particles.color = Color(1, 1, 0.5)	
 	
 func unhighlight() -> void:
-	pass
+	particles.enabled = false

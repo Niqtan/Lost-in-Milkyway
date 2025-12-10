@@ -13,7 +13,7 @@ script = ExtResource("1_i87kl")
 texture = ExtResource("2_vs5mg")
 centered = false
 
-[node name="Glow" type="GPUParticles2D" parent="."]
+[node name="Glow" type="PointLight2D" parent="StarSprite"]
 
 [node name="Area2D" type="Area2D" parent="."]
 
