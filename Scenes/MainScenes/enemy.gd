@@ -3,7 +3,9 @@ extends CharacterBody2D
 
 @export var movement_speed: float = 200.0
 @export var pathfinding_algorithm: PathFindingManager = null
+
 @export var target_pos: Marker2D = null
+var last_target_position: Vector2
 
 # Enemy Health
 @export var enemy_health: float = 200.0
@@ -21,9 +23,16 @@ func _ready() -> void:
 	path_line.default_color = Color.WHITE
 	path_line.z_index = 100
 	add_child(path_line)
+	
 	get_path_array()
-
+	if target_pos:
+		last_target_position = target_pos.position
+	
 func _process(delta: float) -> void:
+	if target_pos and target_pos.position != last_target_position:
+		last_target_position = target_pos.position
+		get_path_array()
+
 	get_path_to_position()
 	visualize_path_array(path_array)
 	$AnimatedSprite2D.play("default")

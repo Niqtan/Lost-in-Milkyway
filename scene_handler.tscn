@@ -36,10 +36,10 @@ script = null
 [node name="Enemy" parent="." node_paths=PackedStringArray("pathfinding_algorithm", "target_pos") instance=ExtResource("5_p4hv5")]
 position = Vector2(351, 32)
 pathfinding_algorithm = NodePath("../PathFindingManager")
-target_pos = NodePath("../Marker2D")
+target_pos = NodePath("../StarTracker")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1127, 615)
+[node name="StarTracker" type="Marker2D" parent="."]
+position = Vector2(1123, 667)
 
 [node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
 

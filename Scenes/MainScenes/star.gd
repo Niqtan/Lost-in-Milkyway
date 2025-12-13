@@ -28,7 +28,7 @@ var occupying_enemy: Enemy = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	grid_position = Vector2i(global_position / 64)
+	
 
 func occupy(enemy: Enemy) -> void:
 	if not is_occupied:

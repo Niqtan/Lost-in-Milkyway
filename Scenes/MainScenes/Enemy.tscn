@@ -30,6 +30,7 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D" groups=["units"]]
 script = ExtResource("1_qtwnk")
+movement_speed = 100.0
 enemy_health = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

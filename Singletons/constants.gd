@@ -7,5 +7,5 @@ const SCENE_PATHS: Dictionary = {
 	# using the constant
 	
 	"lightning_attack": "uid://dgser2dvmea1u",
-	"star_scene": "uid://ompre4x5rt34"
+	"star_scene": "uid://bxjpn78hxx1w"
 }

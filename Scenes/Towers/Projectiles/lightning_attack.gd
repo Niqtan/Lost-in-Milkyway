@@ -6,7 +6,6 @@ var constellation_damage: float = 10.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
 	if not target or not is_instance_valid(target):
-		print("No valid target, deleting...")
 		queue_free()
 		return
 	

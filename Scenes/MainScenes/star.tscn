@@ -7,16 +7,16 @@
 radius = 8.0
 
 [node name="Star" type="Node2D"]
+z_index = 1000
+scale = Vector2(3, 3)
 script = ExtResource("1_i87kl")
 
 [node name="StarSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_vs5mg")
-centered = false
 
 [node name="Glow" type="PointLight2D" parent="StarSprite"]
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, 8)
 shape = SubResource("CircleShape2D_i87kl")

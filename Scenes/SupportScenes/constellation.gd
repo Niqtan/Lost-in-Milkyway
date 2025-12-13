@@ -6,7 +6,7 @@ This is 1/3 of the constellation
 series of scripts
 
 This script mainly focuses on
-initializing the needed variables
+initializing the needed  riables
 in making the constellation 
 gameplay 
 
