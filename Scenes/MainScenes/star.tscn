@@ -15,6 +15,7 @@ script = ExtResource("1_i87kl")
 texture = ExtResource("2_vs5mg")
 
 [node name="Glow" type="PointLight2D" parent="StarSprite"]
+texture_scale = 0.01
 
 [node name="Area2D" type="Area2D" parent="."]
 

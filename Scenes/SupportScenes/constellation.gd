@@ -24,12 +24,16 @@ func _init(constellation_id: int, constellation_shape: String, positions: Array[
 	shape = constellation_shape
 	star_positions = positions
 
-
+func get_star_positions() -> Vector2i:
+	for position in star_positions:
+		return position
+	return Vector2i.ZERO
+	
 func is_complete(occupied_positions: Array[Vector2i]) -> bool:
-	for star_pos in star_positions:
-		if star_pos not in occupied_positions:
-			return false
-	return true
+	if occupied_positions.size() >= 3:
+		return true
+	else:
+		return false
 
 func marked_complete():
 	constellation_completed = true

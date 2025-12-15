@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ConstellationManager="*res://Singletons/constellation_manager.gd"
 Constants="*res://Singletons/constants.gd"
+ConstellationManager="*res://Singletons/constellation_manager.gd"
 
 [display]
 

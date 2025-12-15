@@ -32,12 +32,23 @@ func _process(delta: float) -> void:
 	if target_pos and target_pos.position != last_target_position:
 		last_target_position = target_pos.position
 		get_path_array()
+	
+	
 
 	get_path_to_position()
 	visualize_path_array(path_array)
 	$AnimatedSprite2D.play("default")
 	move_and_slide()
-	
+
+func occupy_star(star: Star):
+	current_star = star
+	star.occupy(self)
+
+func _on_left_target_pos():
+	if current_star:
+		current_star.vacate()
+		current_star = null
+
 func get_path_array() -> void:
 	var current_grid_pos: Vector2i = Vector2i(global_position / 64)
 	var target_grid_pos: Vector2i = Vector2i(target_pos.position / 64)

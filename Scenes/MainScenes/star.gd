@@ -28,7 +28,12 @@ var occupying_enemy: Enemy = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Area2D.body_entered.connect(_on_body_entered)
+	grid_position = Vector2(global_position / 64)
 	
+func _on_body_entered(body):
+	if body is Enemy:
+		body.occupy_star(self)
 
 func occupy(enemy: Enemy) -> void:
 	if not is_occupied:
@@ -47,7 +52,7 @@ func highlight() -> void:
 	# Use the GPUParticles2D Node
 	# To highlight the stars
 	
-	particles.enabled = true
+	particles.visible = true
 	particles.energy = 1.5
 	particles.color = Color(1, 1, 0.5)	
 	

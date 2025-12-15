@@ -19,18 +19,26 @@ func _process(delta: float) -> void:
 			highlight_tile.set_sprite(tower_placer_manager.selected_tower)
 
 func setup_star_gameplay():
-	print("Instantiating stars")
-	var star_scene = preload(Constants.SCENE_PATHS.star_scene)
-	var star_instance = star_scene.instantiate()	
+	print("Instantiating the pre-made constellations!")
 	
-	var random_safe_grid_x = randi_range(1, 18)
-	var random_safe_grid_y = randi_range(1, 10)
+	var constellation_array = ConstellationManager.generate_constellations()
 	
-	star_global_position = Vector2(random_safe_grid_x * 64 + 32, random_safe_grid_y * 64 + 32)
-	star_instance.global_position = star_global_position
-	
-	add_child(star_instance)
-	$StarTracker.global_position = star_instance.global_position
+	# Loop over each constellation
+	for constellation in constellation_array:
+		# Get each position of each stars
+		var star_positions = constellation.get_star_positions()
+		
+		# Loop through each star position in the constellation
+		for star_pos in star_positions:
+			# Create a new star instance
+			var star_scene = preload(Constants.SCENE_PATHS.star_scene)
+			var star_instance = star_scene.instantiate()	
+			
+			# Use the position of the constellation
+			star_instance.global_position = star_pos
+			
+			add_child(star_instance)
+			$StarTracker.global_position = star_instance.global_position
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):

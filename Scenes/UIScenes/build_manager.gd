@@ -32,7 +32,7 @@ func place_tower(cell_position: Vector2, tower_packed_scene: PackedScene) -> voi
 	# Can walk on 
 	
 	pathfinding_node.update_cell_cost(cell_position)
-	print("Tower palced at grid: ", cell_position, "with cost 10")
+	print("Tower placed at grid: ", cell_position, "with cost 10")
 	# Recalculate the path array afterwards
 	var enemies = get_tree().get_nodes_in_group("units")
 	
