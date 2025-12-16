@@ -13,21 +13,21 @@ gameplay
 """
 
 var id: int
-var star_positions: Array[Vector2i] = []
+var star_positions: Array[Vector2i]
 var shape: String
 var line_renderer: Line2D = null
 
 var constellation_completed = false
 
 func _init(constellation_id: int, constellation_shape: String, positions: Array[Vector2i]) -> void:
-	id = constellation_id
-	shape = constellation_shape
-	star_positions = positions
+	self.id = constellation_id
+	self.shape = constellation_shape
+	self.star_positions = positions
 
-func get_star_positions() -> Vector2i:
-	for position in star_positions:
-		return position
-	return Vector2i.ZERO
+func get_star_positions() -> Array[Vector2i]:
+	var result: Array[Vector2i] = []
+	result.assign(star_positions)
+	return result
 	
 func is_complete(occupied_positions: Array[Vector2i]) -> bool:
 	if occupied_positions.size() >= 3:

@@ -37,10 +37,12 @@ func _on_body_entered(body):
 
 func occupy(enemy: Enemy) -> void:
 	if not is_occupied:
+		
 		is_occupied = true
 		occupying_enemy = enemy
 		highlight()
 		ConstellationManager.star_occupied(self)
+		
  
 func vacate() -> void:
 	is_occupied = false
