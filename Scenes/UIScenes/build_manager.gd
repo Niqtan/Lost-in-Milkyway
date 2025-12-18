@@ -13,7 +13,7 @@ const TOWER_GROUP: String = "TOWER_GROUP"
 var used_tiles: Array[Vector2i] = []
 
 # Building is not working
-func place_tower(cell_position: Vector2, tower_packed_scene: PackedScene) -> void:
+func place_tower(cell_position: Vector2i, tower_packed_scene: PackedScene) -> void:
 	if check_valid_tower_placement(cell_position) == false:
 		return
 	

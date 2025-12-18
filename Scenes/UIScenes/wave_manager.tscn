@@ -1,10 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kai2sftuw5vi"]
-
-[ext_resource type="Script" uid="uid://bamilx6sa3boo" path="res://Scenes/SupportScenes/wave_manager.gd" id="1_ustui"]
+[gd_scene format=3 uid="uid://kai2sftuw5vi"]
 
 [node name="WaveManager" type="Node2D"]
-script = ExtResource("1_ustui")
-default_spawn_delay = 5.0
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 

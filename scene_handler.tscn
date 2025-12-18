@@ -28,15 +28,14 @@ p = ExtResource("5_p4hv5")
 
 [node name="HighlightTile" parent="." instance=ExtResource("3_cidb5")]
 
-[node name="WaveManager" parent="." instance=ExtResource("6_rp770")]
-script = null
+[node name="WaveManager" parent="." node_paths=PackedStringArray("enemy_spawner") instance=ExtResource("6_rp770")]
+default_spawn_delay = 1.0
+enemy_spawner = NodePath("Enemy Spawner")
 
 [node name="Enemy Spawner" parent="WaveManager" instance=ExtResource("7_a6qyh")]
+enemy_scene = ExtResource("5_p4hv5")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("pathfinding_algorithm", "target_pos") instance=ExtResource("5_p4hv5")]
-position = Vector2(351, 32)
-pathfinding_algorithm = NodePath("../PathFindingManager")
-target_pos = NodePath("../StarTracker")
+[node name="Enemies" type="Node2D" parent="."]
 
 [node name="StarTracker" type="Marker2D" parent="."]
 position = Vector2(1123, 667)

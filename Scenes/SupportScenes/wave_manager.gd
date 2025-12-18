@@ -18,15 +18,15 @@ signal spawning_phase_complete
 # The Packed tower scene in question when	
 # we want to spawn, then it would refer
 # to this scene
-@export var enemy_spawner: EnemySpawner = null
+@export var enemy_spawner: EnemySpawner
 
 var current_spawn_delay: float = 0.0
 var current_data_index: int = 0
 
 func _ready() -> void:
-	current_spawn_delay = default_spawn_delay
-	
-	enemy_spawn_timer.wait_time = current_spawn_delay
+	print("Hello from wave manager!")
+	current_spawn_delay = default_spawn_delay # Sets default delay to 1 second
+	enemy_spawn_timer.wait_time = current_spawn_delay # Configure timer
 	
 	enemy_spawn_timer.start()
 	
@@ -36,6 +36,7 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var continue_wave = enemy_spawner.spawn_enemy(current_data_index)
 	
 	if continue_wave:
+		# Move to next enemy
 		current_data_index += 1
 	else:
 		# printerr("Game Complete!")
