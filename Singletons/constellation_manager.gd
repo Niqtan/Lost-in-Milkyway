@@ -83,10 +83,15 @@ func star_vacated(star: Star):
 	pass
 	
 func check_constellations():
+	var all_completed = true
 	for constellation in constellations:
-		if constellation.is_complete(occupied_star_positions):
-			print("yes")
-			constellation.mark_completed()
+		if not constellation.is_complete(occupied_star_positions):
+			all_completed = false
+			print("not yet complete!")
+		else:
+			constellation.marked_complete()
+		
+		if all_completed:
 			trigger_sky_crack()
 
 		
@@ -99,16 +104,39 @@ func trigger_sky_crack() -> void:
 			completed_count += 1
 	
 	var crack_percentage: float = float(completed_count) / constellations.size() * 100.00
-	# 
+	
+	print(crack_percentage)
 	
 	if completed_count >= constellations.size():
 		game_over()
 		
+func play_sky_crack_animations() -> void:
+	pass
+	# Play the animations
+
+func show_game_over_ui() -> void:
+	pass
+
+func stop_game_systems() -> void:
+
+
+	# Pause all timers
+	get_tree().paused = true
 	
+	# Get rid of user input
+	set_process_input(false)
+	
+
 func game_over():
 	# Add an animation of 
 	# the sky cracking
 	
 	print("GAME OVER - All constellations formed")
 	
+	# Show game over ui
+	await get_tree().create_timer(2.0).timeout
+	
+	
+	
 	# Then probably add like a UI here indicating for game over
+	

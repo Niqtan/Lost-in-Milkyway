@@ -3,12 +3,14 @@ extends Node
 @export var tower_placer_manager: TowerPlacer = null
 @export var highlight_tile: HighlightTile = null
 @export var building_manager: BuildManager = null
+@export var wave_manager: WaveManager = null
 @onready var tile_map_layer: TileMapLayer = $Foreground
 
 var array_of_star_positions: Array[Vector2i] = []
 
 func _ready() -> void:
 	setup_star_gameplay()
+	wave_manager.start_wave()
 	
 	
 func _process(delta: float) -> void:

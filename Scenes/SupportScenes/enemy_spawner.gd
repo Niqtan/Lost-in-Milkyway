@@ -9,25 +9,28 @@ one simple sentence,
 class_name EnemySpawner
 extends Node2D
 
-@export var wave_data_array: Array = ["Enemy 1", "Enemy 2" , "Enemy 3"  , "Enemy 4"  ]
 
 # Spawn the enemies
 @export var enemy_scene: PackedScene
 @onready var enemies_container = get_node("../../Enemies")
 
+
 # Spawns the enemy at the enemy spawner at the timing of it being called
-func spawn_enemy(current_data_index: int) -> bool:
-	if current_data_index >= wave_data_array.size():
-		# If there are no more enemies,
-		# wave is done
-		return false
-	
+func spawn_enemy(enemy_health: int, enemy_speed: float) -> void:
+
 	
 	var enemy = enemy_scene.instantiate()
-	enemies_container.add_child(enemy)
-	enemy.global_position = $"../../Enemies/Enemy".global_position
+	enemy.pathfinding_algorithm = $"../../PathFindingManager"
+	enemy.target_pos = $"../../StarTracker"
 	
-	# If there are more enemies,
-	# continue spawning
-	# print_debug(wave_data_array[current_data_index])
-	return true
+	# always adjust enemy stats according
+	# to wave data array
+	
+	enemy.enemy_health = enemy_health
+	enemy.movement_speed = enemy_speed
+	
+	enemy.enemy_died.connect(get_parent()._on_enemy_died)
+	
+	enemies_container.add_child(enemy)
+	enemy.global_position = $"../../SpawnPoint".global_position
+	

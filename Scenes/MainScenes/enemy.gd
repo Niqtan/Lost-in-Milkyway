@@ -18,6 +18,9 @@ var path_array: Array[Vector2i] = []
 # For the star gameplay
 var current_star: Star = null
 
+# Signal for enemy dying
+signal enemy_died
+
 func _ready() -> void:
 	path_line.width = 5
 	path_line.default_color = Color.WHITE
@@ -33,10 +36,9 @@ func _process(delta: float) -> void:
 		last_target_position = target_pos.position
 		get_path_array()
 	
-	
 
 	get_path_to_position()
-	visualize_path_array(path_array)
+	#visualize_path_array(path_array)
 	$AnimatedSprite2D.play("default")
 	move_and_slide()
 
@@ -55,7 +57,6 @@ func get_path_array() -> void:
 	print("Enemy at grid pos: ", global_position / 64)
 	path_array = pathfinding_algorithm.get_valid_path(current_grid_pos, target_grid_pos)
 	
-	visualize_path_array(path_array)
 	
 	if path_array.size() > 0:
 		print(path_array[0])
@@ -89,9 +90,11 @@ func take_damage(damage: float):
 	print("Enemy health: ", enemy_health)
 	
 	if enemy_health <= 0:
+		
 		enemy_die()
 	
 func enemy_die():
+	enemy_died.emit()
 	queue_free()
 	
 # Star

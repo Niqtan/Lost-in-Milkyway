@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2trcapqgmgs8"]
+[gd_scene load_steps=12 format=3 uid="uid://b2trcapqgmgs8"]
 
 [ext_resource type="Script" uid="uid://43lpoalbkvdh" path="res://scene_handler.gd" id="1_8qim7"]
 [ext_resource type="PackedScene" uid="uid://dyxvg21scor2q" path="res://Scenes/Maps/map_1.tscn" id="2_qjdn2"]
@@ -8,14 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://bh5uv5ek2gchr" path="res://Scenes/MainScenes/Enemy.tscn" id="5_p4hv5"]
 [ext_resource type="PackedScene" uid="uid://kai2sftuw5vi" path="res://Scenes/UIScenes/wave_manager.tscn" id="6_rp770"]
 [ext_resource type="PackedScene" uid="uid://khx3tuurjhea" path="res://Scenes/SupportScenes/enemy_spawner.tscn" id="7_a6qyh"]
+[ext_resource type="Script" uid="uid://bamilx6sa3boo" path="res://Scenes/SupportScenes/wave_manager.gd" id="8_6b8lh"]
 [ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://towerselect.tscn" id="9_0d6uv"]
 [ext_resource type="PackedScene" uid="uid://cvt2hqkv0iet0" path="res://Scenes/SupportScenes/tower_placer_manager.tscn" id="10_6b8lh"]
 
-[node name="SceneHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager")]
+[node name="SceneHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager", "wave_manager")]
 script = ExtResource("1_8qim7")
 tower_placer_manager = NodePath("Gameplay UI/TowerPlacerManager")
 highlight_tile = NodePath("HighlightTile")
 building_manager = NodePath("BuildManager")
+wave_manager = NodePath("WaveManager")
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("3_1lbnm")]
 tile_map_layer = NodePath("../Foreground")
@@ -29,16 +31,20 @@ p = ExtResource("5_p4hv5")
 [node name="HighlightTile" parent="." instance=ExtResource("3_cidb5")]
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("enemy_spawner") instance=ExtResource("6_rp770")]
-default_spawn_delay = 1.0
+script = ExtResource("8_6b8lh")
 enemy_spawner = NodePath("Enemy Spawner")
 
 [node name="Enemy Spawner" parent="WaveManager" instance=ExtResource("7_a6qyh")]
 enemy_scene = ExtResource("5_p4hv5")
 
 [node name="Enemies" type="Node2D" parent="."]
+position = Vector2(350, 34.075)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(350, 34.075)
 
 [node name="StarTracker" type="Marker2D" parent="."]
-position = Vector2(1123, 667)
+position = Vector2(353, 49)
 
 [node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
 

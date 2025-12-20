@@ -18,6 +18,7 @@ var shape: String
 var line_renderer: Line2D = null
 
 var constellation_completed = false
+var all_completed = false
 
 func _init(constellation_id: int, constellation_shape: String, positions: Array[Vector2i]) -> void:
 	self.id = constellation_id
@@ -35,6 +36,6 @@ func is_complete(occupied_positions: Array[Vector2i]) -> bool:
 	else:
 		return false
 
-func marked_complete():
+func marked_complete() -> void:
 	constellation_completed = true
 	print("Constellation of id: ", id, "shape_type: ", shape, "completed!")

@@ -20,26 +20,74 @@ signal spawning_phase_complete
 # to this scene
 @export var enemy_spawner: EnemySpawner
 
-var current_spawn_delay: float = 0.0
 var current_data_index: int = 0
+var enemies_alive_in_wave: int = 0
+
+# The number of waves will depend
+# on the difficulty of a single map
+# For now, we'll make it to 10
+var number_of_waves: int = 10
+var current_number_of_waves: int = 0
+@export var wave_data_array: Array = []
+
+# Variables to manipulate
+@export var number_of_enemies: int = 1
+@export var enemy_health: int = 100
+@export var enemy_speed: float = 50.0
+@export var spawn_delay: float = 0.0
+
+# TO be used for other types
+# of enemies
+@export var enemy_type: String
 
 func _ready() -> void:
-	print("Hello from wave manager!")
-	current_spawn_delay = default_spawn_delay # Sets default delay to 1 second
-	enemy_spawn_timer.wait_time = current_spawn_delay # Configure timer
-	
-	enemy_spawn_timer.start()
+	spawn_delay = default_spawn_delay # Sets default delay to 1 second
+	enemy_spawn_timer.wait_time = spawn_delay # Configure timer
 	
 
-func _on_enemy_spawn_timer_timeout() -> void:
-	# print_debug("Enemy spawned! Time: %s" % current_spawn_delay)
-	var continue_wave = enemy_spawner.spawn_enemy(current_data_index)
+# Each wave has more enemies
+# And would generally be harder
+func start_wave() -> void:	
+	# Basically what all we want to do here is
+	# To manipulate the variables
+	# And then call the timer function again
 	
-	if continue_wave:
-		# Move to next enemy
-		current_data_index += 1
-	else:
-		# printerr("Game Complete!")
+	print("Started the wave!")
+	
+	wave_data_array.clear()
+	current_data_index = 0
+	enemies_alive_in_wave = 0
+	
+	# Fills it with the amount of enemies
+	# we had for each wave
+	for i in range(number_of_enemies):
+		wave_data_array.append("Enemy")
+	
+	enemy_spawn_timer.start()
+
+
+func _on_enemy_spawn_timer_timeout() -> void:
+	print("Initial enemy spawned!")		
+	if current_data_index >= wave_data_array.size():
 		enemy_spawn_timer.stop()
 		spawning_phase_complete.emit()
+		return
+	
+	# Start spawning enemies
+	enemy_spawner.spawn_enemy(enemy_health, enemy_speed)
+	enemies_alive_in_wave += 1
+	current_data_index += 1
+
+
+func _on_enemy_died():	
+	if wave_data_array.size() > 0:
+		wave_data_array.remove_at(0)
+	
+	if wave_data_array.size() == 0:
+		current_number_of_waves += 1
+		enemy_health += 20
+		enemy_speed += 20
+		number_of_enemies += 1
+		
+		start_wave()
 	
