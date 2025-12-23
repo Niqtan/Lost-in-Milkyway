@@ -1,11 +1,34 @@
+
 # Godot
 .godot/
 
 # Sensitive files
+=======
+# Godot 4+ specific ignores
+.godot/
+.import/
+wakatime.cfg
+.wakatime.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+# System/Editor-specific
+.DS_Store
+Thumbs.db
+
+# Sensitive files - ADD YOUR API KEY FILE HERE
+
 api_key.gd
 secrets.gd
 *.key
 *.env
+
 
 # Editor/IDE configs
 wakatime.cfg
@@ -16,3 +39,6 @@ wakatime.cfg
 # System
 .DS_Store
 Thumbs.db
+
+config/secrets.json
+
