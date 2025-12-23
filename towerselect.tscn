@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d0xbdlyg7adcn" path="res://Scenes/UIScenes/TowerButton.gd" id="2_6hfh2"]
 [ext_resource type="Texture2D" uid="uid://vdy70llgdrcn" path="res://Assets/Tilesets/Space Sprite Sheet.png" id="2_6wh6o"]
-[ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/scifiUnit_01.png" id="3_kt7wq"]
-[ext_resource type="Texture2D" uid="uid://dr4jwo17q7avp" path="res://Assets/Towers/scifiUnit_09.png" id="5_of5j8"]
-[ext_resource type="Texture2D" uid="uid://cl3x2t3rxxuuq" path="res://Assets/Towers/scifiUnit_19.png" id="6_tpqgc"]
+[ext_resource type="Texture2D" uid="uid://dhmfl21llaaxc" path="res://Assets/Towers/Test/scifiUnit_01.png" id="3_kt7wq"]
+[ext_resource type="Texture2D" uid="uid://dr4jwo17q7avp" path="res://Assets/Towers/Test/scifiUnit_09.png" id="5_of5j8"]
+[ext_resource type="Texture2D" uid="uid://cl3x2t3rxxuuq" path="res://Assets/Towers/Test/scifiUnit_19.png" id="6_tpqgc"]
 
 [node name="Gameplay UI" type="CanvasLayer"]
 

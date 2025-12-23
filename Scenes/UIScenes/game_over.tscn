@@ -1,27 +1,47 @@
-[gd_scene format=3 uid="uid://dj8030jbe5auy"]
+[gd_scene load_steps=3 format=3 uid="uid://dj8030jbe5auy"]
+
+[ext_resource type="Theme" uid="uid://h8e7w01ah62m" path="res://Scenes/UIScenes/base_theme.tres" id="1_2xpog"]
+[ext_resource type="Script" uid="uid://bmjk1ajf4a1lt" path="res://Scenes/UIScenes/game_over.gd" id="1_i3lcb"]
 
 [node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_i3lcb")
 
-[node name="Control" type="Control" parent="."]
+[node name="Overlay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_2xpog")
 
-[node name="Button" type="Button" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Overlay"]
 layout_mode = 0
 offset_left = 543.0
 offset_top = 278.0
-offset_right = 665.0
-offset_bottom = 309.0
-text = "Return to level"
+offset_right = 583.0
+offset_bottom = 318.0
 
-[node name="Label" type="Label" parent="Control"]
+[node name="ExitGame" type="Button" parent="Overlay/MarginContainer"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="MainMenu" type="Button" parent="Overlay/MarginContainer"]
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="Retry" type="Button" parent="Overlay/MarginContainer"]
+layout_mode = 2
+
+[node name="Indicator" type="Label" parent="Overlay"]
 layout_mode = 0
 offset_left = 553.0
 offset_top = 228.0
 offset_right = 650.0
 offset_bottom = 251.0
 text = "GAME OVER!"
+
+[node name="Background" type="TextureRect" parent="Overlay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

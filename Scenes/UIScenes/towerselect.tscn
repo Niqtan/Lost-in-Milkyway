@@ -21,7 +21,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="OverallTowerSelectPanel" type="FlowContainer" parent="HUD/TowerSelection"]
-layout_mode = 2
+layout_mode = 0
 offset_top = 20.0
 offset_right = 250.0
 offset_bottom = 700.0
@@ -520,6 +520,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Notifications" type="Popup" parent="HUD"]
+oversampling_override = 1.0
 visible = true
 
 [node name="Popup Menus" type="MarginContainer" parent="."]
