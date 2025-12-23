@@ -1,4 +1,18 @@
-# Godot 4+ specific ignores
-.addons/
+# Godot
 .godot/
-/android/
+
+# Sensitive files
+api_key.gd
+secrets.gd
+*.key
+*.env
+
+# Editor/IDE configs
+wakatime.cfg
+.wakatime.cfg
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
