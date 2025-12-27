@@ -18,8 +18,8 @@ func _ready() -> void:
 
 func set_up_astar_grid() -> void:
 	astar_grid.region = tile_map_grid.get_used_rect()
-	astar_grid.cell_size = tile_map_grid.tile_set.tile_size
-	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+	astar_grid.cell_size = Vector2i(1,1)
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	
 	astar_grid.update()
 	
@@ -52,11 +52,7 @@ func get_valid_path(start_position: Vector2i, end_position: Vector2i) -> Array[V
 	var local_path_array: Array[Vector2i] = []
 	
 	for point in astar_grid.get_point_path(start_position, end_position):
-		var current_point: Vector2i = point
-		
-		current_point += astar_grid.cell_size / 2 as Vector2i
-		
-		local_path_array.append(current_point)
+		local_path_array.append(Vector2i(point))
 	
 	return local_path_array	
 

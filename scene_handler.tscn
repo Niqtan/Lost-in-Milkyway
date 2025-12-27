@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://kai2sftuw5vi" path="res://Scenes/UIScenes/wave_manager.tscn" id="6_rp770"]
 [ext_resource type="PackedScene" uid="uid://khx3tuurjhea" path="res://Scenes/SupportScenes/enemy_spawner.tscn" id="7_a6qyh"]
 [ext_resource type="Script" uid="uid://bamilx6sa3boo" path="res://Scenes/SupportScenes/wave_manager.gd" id="8_6b8lh"]
-[ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://towerselect.tscn" id="9_0d6uv"]
 [ext_resource type="PackedScene" uid="uid://cvt2hqkv0iet0" path="res://Scenes/SupportScenes/tower_placer_manager.tscn" id="10_6b8lh"]
+[ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://Scenes/UIScenes/towerselect.tscn" id="10_mj12j"]
 
 [node name="SceneHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager", "wave_manager")]
 script = ExtResource("1_8qim7")
@@ -46,6 +46,6 @@ position = Vector2(350, 34.075)
 [node name="StarTracker" type="Marker2D" parent="."]
 position = Vector2(353, 49)
 
-[node name="Gameplay UI" parent="." instance=ExtResource("9_0d6uv")]
+[node name="Gameplay UI" parent="." instance=ExtResource("10_mj12j")]
 
 [node name="TowerPlacerManager" parent="Gameplay UI" instance=ExtResource("10_6b8lh")]

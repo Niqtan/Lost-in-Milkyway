@@ -13,7 +13,7 @@ var last_target_position: Vector2
 # Path visualization
 # Using Line2D
 @onready var path_line: Line2D = Line2D.new()
-var path_array: Array[Vector2i] = []
+var path_array: Array[Vector2] = []
 
 # For the star gameplay
 var current_star: Star = null
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	
 
 	get_path_to_position()
-	#visualize_path_array(path_array)
+	visualize_path_array(path_array)
 	$AnimatedSprite2D.play("default")
 	move_and_slide()
 
@@ -54,17 +54,22 @@ func _on_left_target_pos():
 func get_path_array() -> void:
 	var current_grid_pos: Vector2i = Vector2i(global_position / 64)
 	var target_grid_pos: Vector2i = Vector2i(target_pos.position / 64)
-	print("Enemy at grid pos: ", global_position / 64)
-	path_array = pathfinding_algorithm.get_valid_path(current_grid_pos, target_grid_pos)
+	var grid_path = pathfinding_algorithm.get_valid_path(current_grid_pos, target_grid_pos)
 	
+	# Convert to world path
+	path_array = []
+	
+	for grid_pos in grid_path:
+		var world_pos = Vector2(grid_pos) * 64 + Vector2(32, 32)
+		path_array.append(world_pos)
 	
 	if path_array.size() > 0:
 		print(path_array[0])
 
-func visualize_path_array(path_array: Array[Vector2i]) -> void:
+func visualize_path_array(path_array: Array[Vector2]) -> void:
 	# Use white dots to visualize
 	# the path array
-	
+		
 	path_line.clear_points()
 	
 	for world_position in path_array:

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cng55yelilh2x"]
+
+[node name="HintManager" type="CanvasLayer"]

@@ -19,6 +19,9 @@ var occupied_star_positions: Array[Vector2i] = []
 signal constellation_completed(constellation: Constellation)
 signal star_collected
 
+# UI scenes
+const game_over_ui = preload(Constants.SCENE_PATHS.game_over)
+
 # Puts it in the star arary
 func register_star(star: Star) -> void:
 	all_stars.append(star)
@@ -47,27 +50,47 @@ func generate_shape_positions(shape: String) -> Array[Vector2i]:
 	# Since we're spawning the stars
 	# on here, we need to generate
 	# each star position
-	var random_grid_x = randi_range(1, 18)
-	var random_grid_y = randi_range(1, 10)
 	
+	# Add a maximum number of attempts to
+	# generate a shape
 	
-	# The center variable is the starting
-	# point of the constellation  
-	var center = Vector2i(random_grid_x, random_grid_y)
-	var pattern: Array[Vector2i] = []
+	var max_attempts = 100
+	var current_no_attempts = 0
 	
-	match shape:
-		# Add more shapes here
-		# Once the triangle shape
-		# Seems to be working
-		"triangle":
-			pattern.append(center)
-			pattern.append(center + Vector2i(2,0))
-			pattern.append(center + Vector2i(1,-2))
-	
-	print(typeof(pattern))
-	
-	return pattern
+	while current_no_attempts <= max_attempts:
+		current_no_attempts += 1
+		
+		var random_grid_x = randi_range(1, 18)
+		var random_grid_y = randi_range(1, 10)
+		
+		
+		# The center variable is the starting
+		# point of the constellation  
+		var center = Vector2i(random_grid_x, random_grid_y)
+		var pattern: Array[Vector2i] = []
+		
+		match shape:
+			# Add more shapes here
+			# Once the triangle shape
+			# Seems to be working
+			"triangle":
+				pattern.append(center)
+				pattern.append(center + Vector2i(2,0))
+				pattern.append(center + Vector2i(1,-2))
+			
+		if check_star_positions(pattern):
+			return pattern
+				
+		print(typeof(pattern))
+		
+	print("Could not generate a valid constellation after ", max_attempts, " attempts")
+	return [Vector2i(5,5), Vector2i(7,5), Vector2i(6,3)]
+
+func check_star_positions(pattern: Array[Vector2i]) -> bool:
+	for pos in pattern:
+		if pos.x < 1 or pos.x > 18 or pos.y < 1 or pos.y > 10:
+			return false
+	return true
 
 func grid_to_world(grid_pos: Vector2i, tile_size: int = 64) -> Vector2:
 	return Vector2(grid_pos.x * tile_size + tile_size / 2, grid_pos.y * tile_size + tile_size / 2)
@@ -115,27 +138,37 @@ func play_sky_crack_animations() -> void:
 	# Play the animations
 
 func show_game_over_ui() -> void:
-	pass
+	var ui_instance = game_over_ui.instantiate()
+	add_child(ui_instance)
+	get_tree().paused = true
 
 func stop_game_systems() -> void:
-
-
-	# Pause all timers
-	get_tree().paused = true
-	
 	# Get rid of user input
 	set_process_input(false)
 	
+func clear_all_game_objects() -> void:
+	var root = get_tree().current_scene
+	
+	for child in root.get_children():
+		if child != self:
+			# Queue free all the children
+			child.queue_free()
 
 func game_over():
+
+		
+	# Get rid of everything
+	await get_tree().create_timer(2.0).timeout
+	stop_game_systems()
+	
+	clear_all_game_objects()
+	
+	await get_tree().process_frame
+	
 	# Add an animation of 
 	# the sky cracking
-	
-	print("GAME OVER - All constellations formed")
-	
-	# Show game over ui
-	await get_tree().create_timer(2.0).timeout
-	
+	# in the game over ui
+	show_game_over_ui()
 	
 	
 	# Then probably add like a UI here indicating for game over
