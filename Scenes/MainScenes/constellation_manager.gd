@@ -18,6 +18,9 @@ var occupied_star_positions: Array[Vector2i] = []
 
 signal constellation_completed(constellation: Constellation)
 
+# UI scenes
+const game_over_ui = preload(Constants.SCENE_PATHS.game_over)
+
 # Puts it in the star arary
 func register_star(star: Star) -> void:
 	all_stars.append(star)
@@ -106,5 +109,9 @@ func game_over():
 	# the sky cracking
 	
 	print("GAME OVER - All constellations formed")
+	var ui_instance = game_over_ui.instantiate()
+	add_child(ui_instance)
+	get_tree().paused = true
+	
 	
 	# Then probably add like a UI here indicating for game over
