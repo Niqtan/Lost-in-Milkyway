@@ -8,11 +8,12 @@ extends Node
 
 var array_of_star_positions: Array[Vector2i] = []
 
-func _ready() -> void:
+
+func _ready() -> void:	
 	setup_star_gameplay()
 	wave_manager.start_wave()
-	
-	
+
+
 func _process(delta: float) -> void:
 	var current_highlighted_tower = null
 	if tower_placer_manager.selected_tower != current_highlighted_tower:

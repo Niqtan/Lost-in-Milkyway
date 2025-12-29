@@ -100,7 +100,9 @@ func star_occupied(star: Star):
 	if star.is_occupied:
 		occupied_star_positions.append(star.grid_position)
 		star_collected.emit()
+		
 	check_constellations()
+
 
 func star_vacated(star: Star):
 	pass
