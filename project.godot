@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Lost in the Milkway"
-run/main_scene="uid://b2trcapqgmgs8"
+run/main_scene="uid://c0y7lj5qjr1u5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Constants="*res://Singletons/constants.gd"
 ConstellationManager="*res://Singletons/constellation_manager.gd"
+Constants="*res://Singletons/constants.gd"
 
 [display]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2trcapqgmgs8"]
+[gd_scene load_steps=16 format=3 uid="uid://cmg6aoovnep43"]
 
-[ext_resource type="Script" uid="uid://43lpoalbkvdh" path="res://scene_handler.gd" id="1_8qim7"]
+[ext_resource type="Script" uid="uid://43lpoalbkvdh" path="res://Scenes/MainScenes/scene_handler.gd" id="1_53min"]
 [ext_resource type="PackedScene" uid="uid://dyxvg21scor2q" path="res://Scenes/Maps/map_1.tscn" id="2_qjdn2"]
 [ext_resource type="PackedScene" uid="uid://cyco7e3aw7t1b" path="res://Scenes/UIScenes/build_manager.tscn" id="3_1lbnm"]
 [ext_resource type="PackedScene" uid="uid://df64h7kxlj1qe" path="res://Scenes/SupportScenes/highlight_tile.tscn" id="3_cidb5"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dnylrwb8ngoh7" path="res://Scenes/SupportScenes/tutorial_manager.gd" id="15_fcasn"]
 
 [node name="GameHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager", "wave_manager")]
-script = ExtResource("1_8qim7")
+script = ExtResource("1_53min")
 tower_placer_manager = NodePath("Gameplay UI/TowerPlacerManager")
 highlight_tile = NodePath("HighlightTile")
 building_manager = NodePath("BuildManager")
