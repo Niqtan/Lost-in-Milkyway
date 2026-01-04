@@ -13,47 +13,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_2xpog")
 
-[node name="MarginContainer" type="MarginContainer" parent="Overlay"]
+[node name="PanelContainer" type="PanelContainer" parent="Overlay"]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 300.0
-offset_right = 748.0
-offset_bottom = 340.0
-theme_override_constants/margin_top = 0
+offset_left = 510.0
+offset_top = 225.0
+offset_right = 551.645
+offset_bottom = 263.335
+scale = Vector2(6.215, 6.215)
+mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/MarginContainer"]
-layout_mode = 2
-
-[node name="ExitGame" type="Button" parent="Overlay/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "EXIT"
-
-[node name="MainMenu" type="Button" parent="Overlay/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Return to main menu"
-
-[node name="Retry" type="Button" parent="Overlay/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Retry"
-
-[node name="Indicator" type="Label" parent="Overlay"]
+[node name="Title" type="Label" parent="Overlay"]
 layout_mode = 0
-offset_left = 553.0
-offset_top = 228.0
-offset_right = 680.0
-offset_bottom = 251.0
+offset_left = 489.0
+offset_right = 789.0
+offset_bottom = 574.0
 text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Background" type="TextureRect" parent="Overlay"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+[node name="Container" type="MarginContainer" parent="Overlay"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -33.0
+offset_right = 21.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Container"]
+layout_mode = 2
+
+[node name="Retry" type="Button" parent="Overlay/Container/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="Quit" type="Button" parent="Overlay/Container/VBoxContainer"]
+layout_mode = 2
+text = "Exit"

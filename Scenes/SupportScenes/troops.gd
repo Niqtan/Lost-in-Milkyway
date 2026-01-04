@@ -6,6 +6,7 @@ extends Node2D
 var selected_tower: PackedScene = null
 
 var towers = {
+	# Change this part
 	"archer": preload("res://Scenes/Towers/Archer.tscn"),
 	"router": preload("res://Scenes/Towers/Router.tscn"),
 	"snowballer": preload("res://Scenes/Towers/snowballer.tscn")

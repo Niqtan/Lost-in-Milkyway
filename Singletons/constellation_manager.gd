@@ -22,6 +22,8 @@ signal star_collected
 # UI scenes
 const game_over_ui = preload(Constants.SCENE_PATHS.game_over)
 
+signal game_is_over
+
 # Puts it in the star arary
 func register_star(star: Star) -> void:
 	all_stars.append(star)
@@ -139,15 +141,8 @@ func play_sky_crack_animations() -> void:
 	pass
 	# Play the animations
 
-func show_game_over_ui() -> void:
-	var ui_instance = game_over_ui.instantiate()
-	add_child(ui_instance)
-	get_tree().paused = true
 
-func stop_game_systems() -> void:
-	# Get rid of user input
-	set_process_input(false)
-	
+
 func clear_all_game_objects() -> void:
 	var root = get_tree().current_scene
 	
@@ -161,17 +156,13 @@ func game_over():
 		
 	# Get rid of everything
 	await get_tree().create_timer(2.0).timeout
-	stop_game_systems()
-	
-	clear_all_game_objects()
-	
+		
 	await get_tree().process_frame
 	
 	# Add an animation of 
 	# the sky cracking
 	# in the game over ui
-	show_game_over_ui()
-	
+	game_is_over.emit()	
 	
 	# Then probably add like a UI here indicating for game over
 	
