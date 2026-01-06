@@ -141,19 +141,19 @@ func play_sky_crack_animations() -> void:
 	pass
 	# Play the animations
 
-
-
-func clear_all_game_objects() -> void:
-	var root = get_tree().current_scene
+# Restart the entirety of the constellation
+func game_reset() -> void:
+	for constellation in get_children():
+		constellation.queue_free()
 	
-	for child in root.get_children():
-		if child != self:
-			# Queue free all the children
-			child.queue_free()
-
+	all_stars = []
+	constellations= []
+	occupied_star_positions= []
+	
+	# Also reset your dark matter resources
+	GameResource.reset_dark_matter()
+	
 func game_over():
-
-		
 	# Get rid of everything
 	await get_tree().create_timer(2.0).timeout
 		
@@ -163,6 +163,7 @@ func game_over():
 	# the sky cracking
 	# in the game over ui
 	game_is_over.emit()	
+	game_reset()
 	
 	# Then probably add like a UI here indicating for game over
 	

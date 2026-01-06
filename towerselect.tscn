@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg6xset0g8tu6"]
+[gd_scene load_steps=6 format=3 uid="uid://b3ysbqmxxv15p"]
 
 [ext_resource type="Script" uid="uid://d0xbdlyg7adcn" path="res://Scenes/UIScenes/TowerButton.gd" id="2_6hfh2"]
 [ext_resource type="Texture2D" uid="uid://vdy70llgdrcn" path="res://Assets/Tilesets/Space Sprite Sheet.png" id="2_6wh6o"]

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://khx3tuurjhea" path="res://Scenes/SupportScenes/enemy_spawner.tscn" id="7_a6qyh"]
 [ext_resource type="Script" uid="uid://bamilx6sa3boo" path="res://Scenes/SupportScenes/wave_manager.gd" id="8_6b8lh"]
 [ext_resource type="PackedScene" uid="uid://cvt2hqkv0iet0" path="res://Scenes/SupportScenes/tower_placer_manager.tscn" id="10_6b8lh"]
-[ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://towerselect.tscn" id="10_53min"]
+[ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://Scenes/UIScenes/towerselect.tscn" id="10_53min"]
 [ext_resource type="PackedScene" uid="uid://cng55yelilh2x" path="res://Scenes/UIScenes/hint_manager.tscn" id="12_mj12j"]
 [ext_resource type="Script" uid="uid://dnvosubd4o4qo" path="res://Scenes/UIScenes/hint_manager.gd" id="13_oce7s"]
 [ext_resource type="PackedScene" uid="uid://csd468qt0aeqs" path="res://Scenes/SupportScenes/tutorial_manager.tscn" id="14_6msxg"]
@@ -50,7 +50,7 @@ position = Vector2(350, 34.075)
 [node name="StarTracker" type="Marker2D" parent="."]
 position = Vector2(353, 49)
 
-[node name="Gameplay UI" parent="." groups=["TOWER_GROUP"] instance=ExtResource("10_53min")]
+[node name="Gameplay UI" parent="." instance=ExtResource("10_53min")]
 
 [node name="TowerPlacerManager" parent="Gameplay UI" groups=["TOWER_GROUP"] instance=ExtResource("10_6b8lh")]
 
@@ -58,8 +58,13 @@ position = Vector2(353, 49)
 script = ExtResource("13_oce7s")
 
 [node name="HintLabel" type="Label" parent="HintManager"]
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 23.0
+grow_horizontal = 2
 
 [node name="TutorialManager" parent="." instance=ExtResource("14_6msxg")]
 script = ExtResource("15_fcasn")

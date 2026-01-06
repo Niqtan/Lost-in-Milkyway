@@ -12,32 +12,40 @@ const TOWER_GROUP: String = "TOWER_GROUP"
 
 var used_tiles: Array[Vector2i] = []
 
-# Building is not working
-func place_tower(cell_position: Vector2i, tower_packed_scene: PackedScene) -> void:
+
+var dark_matter_amount: int = 0
+
+# Allow building to cost money
+func place_tower(cell_position: Vector2i, tower_packed_scene: PackedScene, tower_cost: int) -> void:
 	if check_valid_tower_placement(cell_position) == false:
 		return
 	
-	var new_tower: Node2D = tower_packed_scene.instantiate()
-	add_child(new_tower)
-	
-	# If the position is not the star's position
-	
-	new_tower.position = cell_position * 64 #Sets the position of the tower
-	
-	new_tower.z_index = 1 # Puts the tower in front
-	new_tower.add_to_group(TOWER_GROUP)
-	used_tiles.append(cell_position)
-	
-	# Updates the tiles the enemies
-	# Can walk on 
-	
-	pathfinding_node.update_cell_cost(cell_position)
-	print("Tower placed at grid: ", cell_position, "with cost 10")
-	# Recalculate the path array afterwards
-	var enemies = get_tree().get_nodes_in_group("units")
-	
-	for enemy in enemies:
-		enemy.get_path_array()
+	if GameResource.dark_matter >= tower_cost:
+		GameResource.spend_dark_matter(tower_cost)
+		
+		var new_tower: Node2D = tower_packed_scene.instantiate()
+		add_child(new_tower)
+		
+		# If the position is not the star's position
+		
+		new_tower.position = cell_position * 64 #Sets the position of the tower
+		
+		new_tower.z_index = 1 # Puts the tower in front
+		new_tower.add_to_group(TOWER_GROUP)
+		used_tiles.append(cell_position)
+		
+		# Updates the tiles the enemies
+		# Can walk on 
+		
+		pathfinding_node.update_cell_cost(cell_position)
+		print("Tower placed at grid: ", cell_position, "with cost 10")
+		# Recalculate the path array afterwards
+		var enemies = get_tree().get_nodes_in_group("units")
+		
+		for enemy in enemies:
+			enemy.get_path_array()
+	else:
+		print("Not enough dark matter amount: ", dark_matter_amount)
 	
 	
 func check_valid_tower_placement(cell_position: Vector2i) -> bool:

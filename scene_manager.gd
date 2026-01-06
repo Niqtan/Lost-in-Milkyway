@@ -39,6 +39,7 @@ func change_scene(key: String) -> void:
 	main_menu_instance.visible = false
 	game_over_scene_instance.visible = false
 	
+	# Stop the scene for now
 	for scene in scenes.values():
 		scene.process_mode = Node.PROCESS_MODE_DISABLED
 		
@@ -51,7 +52,7 @@ func change_scene(key: String) -> void:
 				game_scene_instance = game_scene.instantiate()
 				
 				add_child(game_scene_instance)
-				scenes["game_instance"] = game_scene_instance
+				scenes["game_scene"] = game_scene_instance
 		elif key == "game_over_scene":
 			scenes[key].visible = true
 			

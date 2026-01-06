@@ -34,7 +34,6 @@ func setup_star_gameplay():
 	for constellation in constellation_array:
 		# Get each position of each stars
 		var star_positions = constellation.get_star_positions()
-		print(typeof(star_positions))
 		
 		# Loop through each star position in the constellation
 		for star_pos in star_positions:
@@ -61,11 +60,10 @@ func _on_star_collected():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):
 		var cell_position: Vector2i = tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
-		
-		for star_pos in array_of_star_positions:
-			if tower_placer_manager.selected_tower and cell_position != star_pos:
-				building_manager.place_tower(cell_position, tower_placer_manager.selected_tower)
-			# Maybe add a warning afterwards if they do place
-			# That they cant place there?
-			else:
-				print_debug("No tower selected!")
+	
+		if tower_placer_manager.selected_tower and cell_position not in array_of_star_positions:
+			building_manager.place_tower(cell_position, tower_placer_manager.selected_tower, tower_placer_manager.tower_cost)
+		# Maybe add a warning afterwards if they do place
+		# That they cant place there?
+		else:
+			print_debug("No tower selected!")

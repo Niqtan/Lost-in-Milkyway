@@ -80,6 +80,11 @@ func _on_enemy_spawn_timer_timeout() -> void:
 
 
 func _on_enemy_died():	
+	# Payout will be highly dependent on the type of enemy that got killed
+	
+	# For now, its 50
+	GameResource.add_dark_matter(50)
+	
 	if wave_data_array.size() > 0:
 		wave_data_array.remove_at(0)
 	
@@ -90,4 +95,5 @@ func _on_enemy_died():
 		number_of_enemies += 1
 		
 		start_wave()
+	
 	

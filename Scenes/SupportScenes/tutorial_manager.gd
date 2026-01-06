@@ -12,6 +12,7 @@ func _ready() -> void:
 		
 	await get_tree().create_timer(1.0).timeout
 	hint_manager.show_label_once("welcome", "Stop the shadows from connecting the stars!")
+
 	
 func _on_star_collected():
 	hint_manager.show_label_once("first_star", "First star is collected!")
@@ -21,4 +22,4 @@ func _on_enemy_spawn(enemy: Enemy):
 		enemy.enemy_died.connect(_on_first_enemy_died)
 
 func _on_first_enemy_died():
-	hint_manager.show_label_once("first_enemy", "The galaxies rage on...")
+	hint_manager.show_label_once("first_dark_matter", "Dark matter forms...")

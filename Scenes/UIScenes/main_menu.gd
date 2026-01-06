@@ -16,8 +16,6 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	play_pressed.emit()
-	queue_free()
 	
 func _on_exit_pressed() -> void:
 	exit_pressed.emit()
-	queue_free()

@@ -4,10 +4,15 @@ class_name TowerPlacer
 extends Node2D
 
 var selected_tower: PackedScene = null
+var tower_cost: int = 0
 
 var towers = {
 	# Change this part
-	"archer": preload("res://Scenes/Towers/Archer.tscn"),
+	"archer": {
+		
+	"scene": preload("res://Scenes/Towers/Archer.tscn"),
+	"cost": 50,
+	},
 	"router": preload("res://Scenes/Towers/Router.tscn"),
 	"snowballer": preload("res://Scenes/Towers/snowballer.tscn")
 }
@@ -30,7 +35,8 @@ func search_and_connect(node: Node):
 	
 func select_tower(tower: String) -> void:
 	if tower in towers:
-		selected_tower = towers[tower]
+		selected_tower = towers[tower]["scene"]
+		tower_cost = towers[tower]["cost"]
 		print(selected_tower.get_class())
 		print("Selected: ", tower)
 	else:
