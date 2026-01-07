@@ -38,7 +38,6 @@ func generate_constellations(count: int = 1) -> Array[Constellation]:
 		var shape = shapes_of_constellations
 		var positions = generate_shape_positions(shape)
 		
-		print(typeof(positions))
 		
 		var new_constellation = Constellation.new(i, shape, positions)
 		constellations.append(new_constellation)
@@ -83,9 +82,7 @@ func generate_shape_positions(shape: String) -> Array[Vector2i]:
 		if check_star_positions(pattern):
 			return pattern
 				
-		print(typeof(pattern))
 		
-	print("Could not generate a valid constellation after ", max_attempts, " attempts")
 	return [Vector2i(5,5), Vector2i(7,5), Vector2i(6,3)]
 
 func check_star_positions(pattern: Array[Vector2i]) -> bool:
@@ -114,7 +111,6 @@ func check_constellations():
 	for constellation in constellations:
 		if not constellation.is_complete(occupied_star_positions):
 			all_completed = false
-			print("not yet complete!")
 		else:
 			constellation.marked_complete()
 		

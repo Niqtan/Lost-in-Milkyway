@@ -11,7 +11,6 @@ func _ready() -> void:
 	_on_dark_matter_change(GameResource.dark_matter)
 
 func _on_dark_matter_change(new_amount: int) -> void:
-	print("Changed text!")
 	dark_matter_label.text = str(new_amount) + " DM"
 
 	

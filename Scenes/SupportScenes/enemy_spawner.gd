@@ -21,6 +21,8 @@ func spawn_enemy(enemy_health: int, enemy_speed: float) -> void:
 	
 	var enemy = enemy_scene.instantiate()
 	enemy.pathfinding_algorithm = $"../../PathFindingManager"
+	
+	
 	enemy.target_pos = $"../../StarTracker"
 	
 	# always adjust enemy stats according

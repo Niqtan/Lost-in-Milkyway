@@ -67,7 +67,6 @@ func start_wave() -> void:
 
 
 func _on_enemy_spawn_timer_timeout() -> void:
-	print("Initial enemy spawned!")		
 	if current_data_index >= wave_data_array.size():
 		enemy_spawn_timer.stop()
 		spawning_phase_complete.emit()

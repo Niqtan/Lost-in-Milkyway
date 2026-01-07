@@ -24,9 +24,12 @@ func _process(delta: float) -> void:
 
 var current_star_index = 0
 var current_constellation_stars = []
-func setup_star_gameplay():
-	print("Instantiating the pre-made constellations!")
-	
+
+var collected_stars: Array[Node2D] = []
+var closest_dist_sq = INF
+var closest_star_to_enemy: Node2D = null
+
+func setup_star_gameplay():	
 	var constellation_array = ConstellationManager.generate_constellations()
 	
 	ConstellationManager.star_collected.connect(_on_star_collected)
@@ -34,10 +37,11 @@ func setup_star_gameplay():
 	for constellation in constellation_array:
 		# Get each position of each stars
 		var star_positions = constellation.get_star_positions()
-		
+				
 		# Loop through each star position in the constellation
 		for star_pos in star_positions:
 			array_of_star_positions.append(star_pos)
+			print(array_of_star_positions)
 			# Create a new star instance
 			var star_scene = preload(Constants.SCENE_PATHS.star_scene)
 			var star_instance = star_scene.instantiate()	
@@ -49,13 +53,35 @@ func setup_star_gameplay():
 			add_child(star_instance)
 			current_constellation_stars.append(star_instance)
 			
-		if current_constellation_stars.size() > 0:
-			$StarTracker.global_position = current_constellation_stars[0].global_position
+			var world_pos = ConstellationManager.grid_to_world(star_pos)
+			var dist_sq = world_pos.distance_squared_to($SpawnPoint.global_position)
+			
+			if dist_sq < closest_dist_sq:
+				closest_dist_sq = dist_sq
+				closest_star_to_enemy = star_instance
+			
+		if closest_star_to_enemy:
+			current_star_index = current_constellation_stars.find(closest_star_to_enemy)
+			print(current_star_index)
+			$StarTracker.global_position = closest_star_to_enemy.global_position
 
 func _on_star_collected():
-	current_star_index += 1
-	if current_star_index < current_constellation_stars.size():
-		$StarTracker.global_position = current_constellation_stars[current_star_index].global_position
+	collected_stars.append(closest_star_to_enemy)	
+	
+	# Reset each time
+	closest_dist_sq = INF
+	
+	for star in current_constellation_stars:
+		if star in collected_stars:
+			continue
+		var dist_sq = star.global_position.distance_squared_to($SpawnPoint.global_position)
+			
+		if dist_sq < closest_dist_sq:
+			closest_dist_sq = dist_sq
+			closest_star_to_enemy = star
+			print(closest_star_to_enemy)
+	if closest_star_to_enemy:
+		$StarTracker.global_position = closest_star_to_enemy.global_position
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):

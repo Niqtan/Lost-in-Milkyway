@@ -32,6 +32,9 @@ func _ready() -> void:
 		last_target_position = target_pos.position
 	
 func _process(delta: float) -> void:
+	if target_pos:
+		print("Startracker position: ", target_pos.position)
+	
 	if target_pos and target_pos.position != last_target_position:
 		last_target_position = target_pos.position
 		get_path_array()
@@ -54,8 +57,17 @@ func _on_left_target_pos():
 func get_path_array() -> void:
 	var current_grid_pos: Vector2i = Vector2i(global_position / 64)
 	var target_grid_pos: Vector2i = Vector2i(target_pos.position / 64)
+	print("starting grid ", current_grid_pos)
+	print("target  grid ", target_grid_pos)
+	
+	
 	var grid_path = pathfinding_algorithm.get_valid_path(current_grid_pos, target_grid_pos)
 	
+	# Clear old path
+	path_array.clear()
+	path_line.clear_points()  # Add this!
+	
+	print("grid path: ", grid_path)
 	# Convert to world path
 	path_array = []
 	
@@ -92,7 +104,6 @@ func get_path_to_position() -> void:
 
 func take_damage(damage: float):
 	enemy_health -= damage
-	print("Enemy health: ", enemy_health)
 	
 	if enemy_health <= 0:
 		

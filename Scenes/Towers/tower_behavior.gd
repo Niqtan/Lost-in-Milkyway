@@ -14,7 +14,6 @@ var attack_timer: Timer
 var has_attacked_once = false
 
 func _ready() -> void:
-	print("Tower Created!")
 	attack_timer = Timer.new()
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = false 
@@ -44,7 +43,6 @@ func _process(delta: float) -> void:
 # We most likely need to setup a manager for this
 # Since every tower has its own way of attacking
 func _on_attack_timer_timeout() -> void:
-	print("Timer fired!")
 	if current_target and is_instance_valid(current_target):
 		attack_enemies(current_target)
 

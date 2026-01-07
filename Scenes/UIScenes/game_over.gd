@@ -19,7 +19,6 @@ func _ready() -> void:
 	retry_button.pressed.connect(_on_retry_pressed)
 
 func _on_retry_pressed() -> void:
-	print("Game over debug!")
 	retry_pressed.emit()
 	
 func _on_main_pressed() -> void:
