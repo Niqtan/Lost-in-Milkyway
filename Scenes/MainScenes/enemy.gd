@@ -32,9 +32,6 @@ func _ready() -> void:
 		last_target_position = target_pos.position
 	
 func _process(delta: float) -> void:
-	if target_pos:
-		print("Startracker position: ", target_pos.position)
-	
 	if target_pos and target_pos.position != last_target_position:
 		last_target_position = target_pos.position
 		get_path_array()

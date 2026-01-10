@@ -40,6 +40,8 @@ var current_number_of_waves: int = 0
 # of enemies
 @export var enemy_type: String
 
+signal wave_x
+
 func _ready() -> void:
 	spawn_delay = default_spawn_delay # Sets default delay to 1 second
 	enemy_spawn_timer.wait_time = spawn_delay # Configure timer
@@ -57,6 +59,10 @@ func start_wave() -> void:
 	wave_data_array.clear()
 	current_data_index = 0
 	enemies_alive_in_wave = 0
+	
+	# Add another batch of constellations 
+	if current_number_of_waves >= 1:
+		pass
 	
 	# Fills it with the amount of enemies
 	# we had for each wave
@@ -84,15 +90,19 @@ func _on_enemy_died():
 	# For now, its 50
 	GameResource.add_dark_matter(50)
 	
+	# This if statement checks if there are still enemies
 	if wave_data_array.size() > 0:
 		wave_data_array.remove_at(0)
 	
 	if wave_data_array.size() == 0:
-		current_number_of_waves += 1
-		enemy_health += 20
-		enemy_speed += 20
-		number_of_enemies += 1
-		
-		start_wave()
+		if current_number_of_waves <= number_of_waves:
+			current_number_of_waves += 1
+			enemy_health += 20
+			enemy_speed += 20
+			number_of_enemies += 1
+			start_wave()
+		else:
+			# You won or smth
+			print("You won!")
 	
 	

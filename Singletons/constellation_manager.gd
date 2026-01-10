@@ -12,6 +12,7 @@ counted, and reaction
 
 var all_stars: Array[Star] = []
 var constellations: Array[Constellation] = []
+var current_constellation_index: int = 0
 
 # Shows the occupied star positions
 var occupied_star_positions: Array[Vector2i] = []
@@ -29,13 +30,13 @@ func register_star(star: Star) -> void:
 	all_stars.append(star)
 
 # Generates the draft of the constellation
-func generate_constellations(count: int = 1) -> Array[Constellation]:
+func generate_constellations(count: int = 10) -> Array[Constellation]:
 	constellations.clear()
 	
-	var shapes_of_constellations = "triangle"
+	var shapes_of_constellations = ["triangle", "L-shape", "straight", "wide-v"]
 	for i in range(count):
 		# Pick a random shape from constellations array
-		var shape = shapes_of_constellations
+		var shape = shapes_of_constellations.pick_random()
 		var positions = generate_shape_positions(shape)
 		
 		
@@ -78,7 +79,18 @@ func generate_shape_positions(shape: String) -> Array[Vector2i]:
 				pattern.append(center)
 				pattern.append(center + Vector2i(2,0))
 				pattern.append(center + Vector2i(1,-2))
-			
+			"L-shape":
+				pattern.append(center)
+				pattern.append(center + Vector2i(0,2))
+				pattern.append(center + Vector2i(2,2))
+			"straight":
+				pattern.append(center)
+				pattern.append(center + Vector2i(2,0))
+				pattern.append(center + Vector2i(4,0))
+			"wide-v":
+				pattern.append(center)
+				pattern.append(center + Vector2i(2,2))
+				pattern.append(center + Vector2i(4,-2))
 		if check_star_positions(pattern):
 			return pattern
 				
@@ -99,37 +111,42 @@ func star_occupied(star: Star):
 	if star.is_occupied:
 		occupied_star_positions.append(star.grid_position)
 		star_collected.emit()
-		
-	check_constellations()
+	
+	check_constellations(current_constellation_index)
 
 
 func star_vacated(star: Star):
 	pass
 	
-func check_constellations():
+func check_constellations(index: int):
 	var all_completed = true
-	for constellation in constellations:
-		if not constellation.is_complete(occupied_star_positions):
-			all_completed = false
-		else:
-			constellation.marked_complete()
-		
-		if all_completed:
-			trigger_sky_crack()
+	var constellation = constellations[index]
+	
+	
+	if not constellation.is_complete(occupied_star_positions):
+		all_completed = false
+	else:
+		constellation.marked_complete()
+	
+	if all_completed:
+		trigger_sky_crack(constellation)
+	
+	current_constellation_index = index
 
 		
 # Triggering the sky count means 
 # How many times 
-func trigger_sky_crack() -> void:
-	var completed_count = 0
-	for c in constellations:
-		if c.constellation_completed:
-			completed_count += 1
+var completed_count = 0
+func trigger_sky_crack(constellation: Constellation) -> void:
+	if constellation.constellation_completed:
+		completed_count += 1
+		current_constellation_index += 1
+		occupied_star_positions.clear()
+		constellation_completed.emit()
 	
 	var crack_percentage: float = float(completed_count) / constellations.size() * 100.00
 	
-	print(crack_percentage)
-	
+	print(completed_count)
 	if completed_count >= constellations.size():
 		game_over()
 		
