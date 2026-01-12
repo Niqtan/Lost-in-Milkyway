@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var hint_label: Label = $HintLabel
+@onready var hint_label: Label = $Control/MarginContainer/HintLabel
 var hints_shown: Dictionary = {}
 
 func _ready() -> void:

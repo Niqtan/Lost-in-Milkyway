@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cng55yelilh2x"]
+[gd_scene load_steps=2 format=3 uid="uid://cng55yelilh2x"]
+
+[ext_resource type="Script" uid="uid://dnvosubd4o4qo" path="res://Scenes/UIScenes/hint_manager.gd" id="1_8834j"]
 
 [node name="HintManager" type="CanvasLayer"]
+script = ExtResource("1_8834j")

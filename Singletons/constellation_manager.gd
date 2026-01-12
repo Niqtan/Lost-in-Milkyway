@@ -30,7 +30,7 @@ func register_star(star: Star) -> void:
 	all_stars.append(star)
 
 # Generates the draft of the constellation
-func generate_constellations(count: int = 10) -> Array[Constellation]:
+func generate_constellations(count: int = 3) -> Array[Constellation]:
 	constellations.clear()
 	
 	var shapes_of_constellations = ["triangle", "L-shape", "straight", "wide-v"]

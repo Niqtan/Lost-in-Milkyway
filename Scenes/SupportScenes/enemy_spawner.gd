@@ -12,7 +12,7 @@ extends Node2D
 
 # Spawn the enemies
 @export var enemy_scene: PackedScene
-@onready var enemies_container = get_node("../../Enemies")
+@onready var enemies_container = $"../Enemies"
 
 
 # Spawns the enemy at the enemy spawner at the timing of it being called

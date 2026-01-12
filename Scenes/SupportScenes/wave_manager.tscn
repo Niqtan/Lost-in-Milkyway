@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpvxj87xa5y70"]
+
+[ext_resource type="Script" uid="uid://bamilx6sa3boo" path="res://Scenes/SupportScenes/wave_manager.gd" id="1_6h87p"]
+
+[node name="WaveManager" type="Node"]
+script = ExtResource("1_6h87p")
+
+[node name="EnemyTimerSpawner" type="Timer" parent="."]
+
+[connection signal="timeout" from="EnemyTimerSpawner" to="." method="_on_enemy_timer_spawner_timeout"]

@@ -14,12 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://csd468qt0aeqs" path="res://Scenes/SupportScenes/tutorial_manager.tscn" id="14_6msxg"]
 [ext_resource type="Script" uid="uid://dnylrwb8ngoh7" path="res://Scenes/SupportScenes/tutorial_manager.gd" id="15_fcasn"]
 
-[node name="GameHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager", "wave_manager")]
+[node name="GameHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager")]
 script = ExtResource("1_53min")
 tower_placer_manager = NodePath("Gameplay UI/TowerPlacerManager")
 highlight_tile = NodePath("HighlightTile")
 building_manager = NodePath("BuildManager")
-wave_manager = NodePath("WaveManager")
 
 [node name="BuildManager" parent="." node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("3_1lbnm")]
 tile_map_layer = NodePath("../Foreground")
@@ -34,7 +33,6 @@ p = ExtResource("5_p4hv5")
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("enemy_spawner") instance=ExtResource("7_cqibl")]
 enemy_spawner = NodePath("Enemy Spawner")
-spawn_delay = 1.0
 
 [node name="Enemy Spawner" parent="WaveManager" instance=ExtResource("8_3iupg")]
 enemy_scene = ExtResource("5_p4hv5")

@@ -13,7 +13,12 @@ func _ready() -> void:
 	ConstellationManager.constellation_completed.connect(_on_constellation_completed)
 	
 	setup_star_gameplay()
+	
+	call_deferred("_start_gameplay")
+
+func _start_gameplay() -> void:
 	wave_manager.start_wave()
+	
 
 func _process(delta: float) -> void:
 	var current_highlighted_tower = null

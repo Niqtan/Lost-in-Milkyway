@@ -34,7 +34,6 @@ p = ExtResource("5_p4hv5")
 
 [node name="WaveManager" parent="." node_paths=PackedStringArray("enemy_spawner") instance=ExtResource("7_cqibl")]
 enemy_spawner = NodePath("Enemy Spawner")
-spawn_delay = 1.0
 
 [node name="Enemy Spawner" parent="WaveManager" instance=ExtResource("8_3iupg")]
 enemy_scene = ExtResource("5_p4hv5")

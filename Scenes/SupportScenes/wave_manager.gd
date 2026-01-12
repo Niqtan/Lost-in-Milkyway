@@ -7,13 +7,14 @@ one simple sentence,
 """
 
 class_name WaveManager
-extends Node2D
+extends Node
 
+signal wave_changed(wave_num: int)
 signal spawning_phase_complete
 
 #Allow the default_spawn_delay to be editable
 @export var default_spawn_delay: float = 1.0
-@onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
+@onready var enemy_spawn_timer: Timer = $EnemyTimerSpawner
 
 # The Packed tower scene in question when	
 # we want to spawn, then it would refer
@@ -40,7 +41,6 @@ var current_number_of_waves: int = 0
 # of enemies
 @export var enemy_type: String
 
-signal wave_x
 
 func _ready() -> void:
 	spawn_delay = default_spawn_delay # Sets default delay to 1 second
@@ -53,16 +53,13 @@ func start_wave() -> void:
 	# Basically what all we want to do here is
 	# To manipulate the variables
 	# And then call the timer function again
-	
-	print("Started the wave!")
+	current_number_of_waves += 1
+	wave_changed.emit(current_number_of_waves)
 	
 	wave_data_array.clear()
 	current_data_index = 0
 	enemies_alive_in_wave = 0
 	
-	# Add another batch of constellations 
-	if current_number_of_waves >= 1:
-		pass
 	
 	# Fills it with the amount of enemies
 	# we had for each wave
@@ -72,7 +69,7 @@ func start_wave() -> void:
 	enemy_spawn_timer.start()
 
 
-func _on_enemy_spawn_timer_timeout() -> void:
+func _on_enemy_timer_spawner_timeout() -> void:
 	if current_data_index >= wave_data_array.size():
 		enemy_spawn_timer.stop()
 		spawning_phase_complete.emit()
@@ -96,7 +93,6 @@ func _on_enemy_died():
 	
 	if wave_data_array.size() == 0:
 		if current_number_of_waves <= number_of_waves:
-			current_number_of_waves += 1
 			enemy_health += 20
 			enemy_speed += 20
 			number_of_enemies += 1
@@ -105,4 +101,6 @@ func _on_enemy_died():
 			# You won or smth
 			print("You won!")
 	
+	
+
 	
