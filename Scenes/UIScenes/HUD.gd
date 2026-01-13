@@ -38,8 +38,6 @@ func _on_number_constellations_connected_change() -> void:
 	amount_of_constellations_completed += 1
 
 func _on_wave_change(wave_num: int) -> void:
-	print("wave changed called!")
 	number_of_waves.text = str(wave_num) + "/10"
-	number_of_waves.visible = true
 
 	

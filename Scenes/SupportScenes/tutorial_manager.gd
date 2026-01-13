@@ -3,7 +3,7 @@ extends Node
 # Variables for the tutorial manager:
 @onready var hint_manager = $"../HintManager"
 @onready var game = get_parent()
-@onready var enemy_container = $"../WaveManager/Enemy Spawner"
+@onready var enemy_container = $"../WaveManager/Enemies"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -3,22 +3,20 @@ extends Node
 @export var tower_placer_manager: TowerPlacer = null
 @export var highlight_tile: HighlightTile = null
 @export var building_manager: BuildManager = null
-@export var wave_manager: WaveManager = null
 @onready var tile_map_layer: TileMapLayer = $Foreground
+
+@onready var wave_manager: WaveManager = $WaveManager
 
 var array_of_star_positions: Array[Vector2i] = []
 
 func _ready() -> void:	
 	ConstellationManager.star_collected.connect(_on_star_collected)
 	ConstellationManager.constellation_completed.connect(_on_constellation_completed)
-	
+		
+func start_gameplay() -> void:	
 	setup_star_gameplay()
-	
-	call_deferred("_start_gameplay")
 
-func _start_gameplay() -> void:
 	wave_manager.start_wave()
-	
 
 func _process(delta: float) -> void:
 	var current_highlighted_tower = null
@@ -120,3 +118,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		# That they cant place there?
 		else:
 			print_debug("No tower selected!")
+
+
+func _on_enemy_spawn_timer_timeout() -> void:
+	pass # Replace with function body.

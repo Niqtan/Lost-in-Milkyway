@@ -14,12 +14,12 @@ signal spawning_phase_complete
 
 #Allow the default_spawn_delay to be editable
 @export var default_spawn_delay: float = 1.0
-@onready var enemy_spawn_timer: Timer = $EnemyTimerSpawner
+@onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 
 # The Packed tower scene in question when	
 # we want to spawn, then it would refer
 # to this scene
-@export var enemy_spawner: EnemySpawner
+@onready var enemy_spawner: EnemySpawner = $"Enemy Spawner"
 
 var current_data_index: int = 0
 var enemies_alive_in_wave: int = 0
@@ -41,11 +41,15 @@ var current_number_of_waves: int = 0
 # of enemies
 @export var enemy_type: String
 
-
+static var instance_count := 0
 func _ready() -> void:
+	instance_count += 1
+	print("wavemanager instance: ", instance_count)
+	print("Path: ", get_path())
 	spawn_delay = default_spawn_delay # Sets default delay to 1 second
 	enemy_spawn_timer.wait_time = spawn_delay # Configure timer
 	
+	enemy_spawn_timer.timeout.connect(_on_enemy_spawn_timer_timeout)
 
 # Each wave has more enemies
 # And would generally be harder
@@ -67,9 +71,10 @@ func start_wave() -> void:
 		wave_data_array.append("Enemy")
 	
 	enemy_spawn_timer.start()
+	
 
 
-func _on_enemy_timer_spawner_timeout() -> void:
+func _on_enemy_spawn_timer_timeout() -> void:
 	if current_data_index >= wave_data_array.size():
 		enemy_spawn_timer.stop()
 		spawning_phase_complete.emit()
