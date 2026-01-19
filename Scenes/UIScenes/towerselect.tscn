@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg6xset0g8tu6"]
+[gd_scene load_steps=9 format=3 uid="uid://dg6xset0g8tu6"]
 
 [ext_resource type="Texture2D" uid="uid://bwhxpehdy8cwv" path="res://Assets/UI/Gameplay UI/Hearts.png" id="1_rjri0"]
 [ext_resource type="Script" uid="uid://mljhwls2poug" path="res://Scenes/UIScenes/HUD.gd" id="1_tp32i"]
@@ -6,16 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://vdy70llgdrcn" path="res://Assets/Tilesets/Space Sprite Sheet.png" id="2_6wh6o"]
 [ext_resource type="Texture2D" uid="uid://bsumli1gkmyra" path="res://Assets/Towers/Quesade Squid/quesade_SQUID64x64.png" id="3_s24ma"]
 [ext_resource type="Texture2D" uid="uid://clejciqur5qd1" path="res://Assets/Placeholders/Star Placeholder/Star.png" id="6_6hfh2"]
+[ext_resource type="Texture2D" uid="uid://dnlbiax777sid" path="res://Assets/UI/Gameplay UI/Swirl.png" id="7_kt7wq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjri0"]
 atlas = ExtResource("1_rjri0")
 region = Rect2(0, 0, 10, 10)
 
-[node name="HUD" type="CanvasLayer"]
+[node name="UI Layer" type="CanvasLayer"]
 follow_viewport_enabled = true
 script = ExtResource("1_tp32i")
 
-[node name="Control" type="Control" parent="."]
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,29 +25,29 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="GameplayInfo" type="MarginContainer" parent="Control"]
+[node name="GameplayInfo" type="MarginContainer" parent="HUD"]
 layout_mode = 1
 offset_right = 4847.773
 offset_bottom = 768.0
 scale = Vector2(0.065, 0.065)
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/GameplayInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/GameplayInfo"]
 layout_mode = 2
 
-[node name="DarkMatter" type="HBoxContainer" parent="Control/GameplayInfo/HBoxContainer"]
+[node name="DarkMatter" type="HBoxContainer" parent="HUD/GameplayInfo/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/GameplayInfo/HBoxContainer/DarkMatter"]
+[node name="TextureRect" type="TextureRect" parent="HUD/GameplayInfo/HBoxContainer/DarkMatter"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_rjri0")
 expand_mode = 2
 
-[node name="DarkMatterLabel" type="Label" parent="Control/GameplayInfo/HBoxContainer/DarkMatter"]
+[node name="DarkMatterLabel" type="Label" parent="HUD/GameplayInfo/HBoxContainer/DarkMatter"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 561
 
-[node name="TowerSelect" type="MarginContainer" parent="Control"]
+[node name="TowerSelect" type="MarginContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -60,26 +61,26 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="TowerSelect" type="MarginContainer" parent="Control/TowerSelect"]
+[node name="TowerSelect" type="MarginContainer" parent="HUD/TowerSelect"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/TowerSelect/TowerSelect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/TowerSelect/TowerSelect"]
 layout_mode = 2
 
-[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="Control/TowerSelect/TowerSelect/HBoxContainer"]
+[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="HUD/TowerSelect/TowerSelect/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Archer" type="Button" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2"]
+[node name="Archer" type="Button" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 action_mode = 0
 script = ExtResource("2_6hfh2")
 tower_type = "archer"
 
-[node name="Background" type="NinePatchRect" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer"]
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -97,7 +98,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Archer" type="TextureRect" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer"]
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer"]
 z_index = 4096
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
@@ -107,19 +108,19 @@ mouse_filter = 2
 texture = ExtResource("3_s24ma")
 expand_mode = 5
 
-[node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="Control/TowerSelect/TowerSelect/HBoxContainer"]
+[node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="HUD/TowerSelect/TowerSelect/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="Archer" type="Button" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel"]
+[node name="Archer" type="Button" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 action_mode = 0
 script = ExtResource("2_6hfh2")
 tower_type = "archer"
 
-[node name="Background" type="NinePatchRect" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/Archer"]
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/Archer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -137,7 +138,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Archer" type="TextureRect" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/Archer"]
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/Archer"]
 z_index = 4096
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
@@ -147,19 +148,19 @@ mouse_filter = 2
 texture = ExtResource("3_s24ma")
 expand_mode = 5
 
-[node name="SeparationTowerSelectPanel4" type="HBoxContainer" parent="Control/TowerSelect/TowerSelect/HBoxContainer"]
+[node name="SeparationTowerSelectPanel4" type="HBoxContainer" parent="HUD/TowerSelect/TowerSelect/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="Archer" type="Button" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel4"]
+[node name="Archer" type="Button" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel4"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 action_mode = 0
 script = ExtResource("2_6hfh2")
 tower_type = "archer"
 
-[node name="Background" type="NinePatchRect" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel4/Archer"]
+[node name="Background" type="NinePatchRect" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel4/Archer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -177,7 +178,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Archer" type="TextureRect" parent="Control/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel4/Archer"]
+[node name="Archer" type="TextureRect" parent="HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel4/Archer"]
 z_index = 4096
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
@@ -187,7 +188,7 @@ mouse_filter = 2
 texture = ExtResource("3_s24ma")
 expand_mode = 5
 
-[node name="ConstellationDisplay" type="MarginContainer" parent="Control"]
+[node name="ConstellationDisplay" type="MarginContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.915
@@ -195,22 +196,22 @@ anchor_right = 1.0
 scale = Vector2(0.065, 0.065)
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ConstellationDisplay"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/ConstellationDisplay"]
 layout_mode = 2
 
-[node name="DarkMatter" type="HBoxContainer" parent="Control/ConstellationDisplay/HBoxContainer"]
+[node name="DarkMatter" type="HBoxContainer" parent="HUD/ConstellationDisplay/HBoxContainer"]
 layout_mode = 2
 
-[node name="NumberStarCollected" type="Label" parent="Control/ConstellationDisplay/HBoxContainer/DarkMatter"]
+[node name="NumberStarCollected" type="Label" parent="HUD/ConstellationDisplay/HBoxContainer/DarkMatter"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 561
 
-[node name="TextureRect" type="TextureRect" parent="Control/ConstellationDisplay/HBoxContainer/DarkMatter"]
+[node name="TextureRect" type="TextureRect" parent="HUD/ConstellationDisplay/HBoxContainer/DarkMatter"]
 layout_mode = 2
 texture = ExtResource("6_6hfh2")
 expand_mode = 2
 
-[node name="WaveDisplay" type="MarginContainer" parent="Control"]
+[node name="WaveDisplay" type="MarginContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -226,30 +227,85 @@ grow_vertical = 2
 scale = Vector2(0.065, 0.065)
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/WaveDisplay"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/WaveDisplay"]
 layout_mode = 2
 
-[node name="DarkMatter" type="HBoxContainer" parent="Control/WaveDisplay/HBoxContainer"]
+[node name="DarkMatter" type="HBoxContainer" parent="HUD/WaveDisplay/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/WaveDisplay/HBoxContainer/DarkMatter"]
+[node name="TextureRect" type="TextureRect" parent="HUD/WaveDisplay/HBoxContainer/DarkMatter"]
 layout_mode = 2
-texture = ExtResource("6_6hfh2")
+texture = ExtResource("7_kt7wq")
 expand_mode = 2
 
-[node name="NumberWavesCompleted" type="Label" parent="Control/WaveDisplay/HBoxContainer/DarkMatter"]
+[node name="NumberWavesCompleted" type="Label" parent="HUD/WaveDisplay/HBoxContainer/DarkMatter"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 561
 
-[node name="Popup Menus" type="MarginContainer" parent="."]
+[node name="Popup Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Tutorial2" type="MarginContainer" parent="Popup Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -602.0
+offset_top = -200.0
+offset_right = 602.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TowerSelect" type="MarginContainer" parent="Popup Menu/Tutorial2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup Menu/Tutorial2/TowerSelect"]
+layout_mode = 2
+
+[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+
+[node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+
+[node name="Popup Menu (2)" type="MarginContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="SettingsPopUp" type="MarginContainer" parent="Popup Menus"]
+[node name="SettingsPopUp" type="MarginContainer" parent="Popup Menu (2)"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PauseMenu" type="MarginContainer" parent="Popup Menus"]
+[node name="PauseMenu" type="MarginContainer" parent="Popup Menu (2)"]
 layout_mode = 2
 mouse_filter = 2

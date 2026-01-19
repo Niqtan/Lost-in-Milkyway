@@ -29,6 +29,9 @@ p = ExtResource("5_p4hv5")
 
 [node name="Foreground" parent="." instance=ExtResource("2_qjdn2")]
 
+[node name="Camera2D" type="Camera2D" parent="Foreground"]
+position = Vector2(639, 385)
+
 [node name="HighlightTile" parent="." instance=ExtResource("3_cidb5")]
 
 [node name="WaveManager" parent="." instance=ExtResource("7_cqibl")]

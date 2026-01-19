@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl3qxjyc37iew"]
+
+[ext_resource type="PackedScene" uid="uid://dl3qxjyc37iew" path="res://Scenes/MusicScenes/audio_stream_player.tscn" id="1_wxynb"]
+
+[node name="AudioStreamPlayer" instance=ExtResource("1_wxynb")]
+autoplay = true

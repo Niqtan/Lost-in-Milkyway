@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 
-@onready var dark_matter_label: Label = $Control/GameplayInfo/HBoxContainer/DarkMatter/DarkMatterLabel
-@onready var number_constellations_connected_label: Label = $Control/ConstellationDisplay/HBoxContainer/DarkMatter/NumberStarCollected
-@onready var number_of_waves: Label = $Control/WaveDisplay/HBoxContainer/DarkMatter/NumberWavesCompleted
+@onready var dark_matter_label: Label = $HUD/GameplayInfo/HBoxContainer/DarkMatter/DarkMatterLabel
+@onready var number_constellations_connected_label: Label = $HUD/ConstellationDisplay/HBoxContainer/DarkMatter/NumberStarCollected
+@onready var number_of_waves: Label = $HUD/WaveDisplay/HBoxContainer/DarkMatter/NumberWavesCompleted
 
 func _ready() -> void:
 	dark_matter_label.visible = true

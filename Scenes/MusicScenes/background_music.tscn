@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkruyksokywyv"]
+
+[ext_resource type="AudioStream" uid="uid://dbhtwe75mgp7c" path="res://Assets/Music/Interstellar Main Theme - Hans Zimmer.mp3" id="1_ajvar"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ajvar")
+autoplay = true
