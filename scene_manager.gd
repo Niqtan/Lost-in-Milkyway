@@ -25,7 +25,6 @@ func change_scene(key: String) -> void:
 		"main_menu":
 			current_scene = main_menu_scene.instantiate()
 			add_child(current_scene)
-			print("hi")
 			current_scene.connect("play_pressed",
 				func():
 					change_scene("game_scene")
@@ -35,7 +34,6 @@ func change_scene(key: String) -> void:
 			current_scene = game_scene.instantiate()
 			add_child(current_scene)
 			
-			current_scene.start_gameplay()
 		
 		"game_over_scene":
 			current_scene = game_over_scene.instantiate()

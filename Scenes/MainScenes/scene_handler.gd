@@ -9,13 +9,15 @@ extends Node
 
 var array_of_star_positions: Array[Vector2i] = []
 
-func _ready() -> void:	
+func _ready() -> void:
+	get_tree().paused = true
+	
 	ConstellationManager.star_collected.connect(_on_star_collected)
 	ConstellationManager.constellation_completed.connect(_on_constellation_completed)
 		
 func start_gameplay() -> void:	
+	get_tree().paused = false
 	setup_star_gameplay()
-
 	wave_manager.start_wave()
 
 func _process(delta: float) -> void:
@@ -120,5 +122,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			print_debug("No tower selected!")
 
 
-func _on_enemy_spawn_timer_timeout() -> void:
-	pass # Replace with function body.
+func _on_gameplay_ui_got_it_pressed() -> void:
+	start_gameplay()

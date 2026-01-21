@@ -1,6 +1,9 @@
 class_name HighlightTile
 extends Node2D
 
+@onready var tilemap = $"../Foreground"
+
+
 func _process(delta: float) -> void:
 	var mouse_position: Vector2i = get_global_mouse_position() / 64
 	

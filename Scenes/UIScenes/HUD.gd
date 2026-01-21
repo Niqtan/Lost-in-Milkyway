@@ -5,7 +5,14 @@ extends CanvasLayer
 @onready var number_constellations_connected_label: Label = $HUD/ConstellationDisplay/HBoxContainer/DarkMatter/NumberStarCollected
 @onready var number_of_waves: Label = $HUD/WaveDisplay/HBoxContainer/DarkMatter/NumberWavesCompleted
 
+@onready var acknowledge_button: Button = $Tutorial/Gotit
+@onready var tutorial_page = $Tutorial
+
+signal got_it_pressed
+
 func _ready() -> void:
+	acknowledge_button.pressed.connect(_on_got_it_pressed)
+	
 	dark_matter_label.visible = true
 	dark_matter_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	dark_matter_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -39,5 +46,8 @@ func _on_number_constellations_connected_change() -> void:
 
 func _on_wave_change(wave_num: int) -> void:
 	number_of_waves.text = str(wave_num) + "/10"
-
+	
+func _on_got_it_pressed() -> void:
+	got_it_pressed.emit()
+	tutorial_page.visible = false
 	

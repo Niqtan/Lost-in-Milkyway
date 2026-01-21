@@ -18,6 +18,7 @@ atlas = ExtResource("1_rjri0")
 region = Rect2(0, 0, 10, 10)
 
 [node name="UI Layer" type="CanvasLayer"]
+process_mode = 3
 follow_viewport_enabled = true
 script = ExtResource("1_tp32i")
 
@@ -247,7 +248,7 @@ expand_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 561
 
-[node name="Popup Menu" type="Control" parent="."]
+[node name="Tutorial" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -262,7 +263,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Tutorial2" type="MarginContainer" parent="Popup Menu"]
+[node name="Tutorial2" type="MarginContainer" parent="Tutorial"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -277,97 +278,102 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TowerSelect" type="MarginContainer" parent="Popup Menu/Tutorial2"]
+[node name="TowerSelect" type="MarginContainer" parent="Tutorial/Tutorial2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup Menu/Tutorial2/TowerSelect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/Tutorial2/TowerSelect"]
 layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
 
-[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer"]
+[node name="SeparationTowerSelectPanel2" type="HBoxContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2"]
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2"]
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
+[node name="Label" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 text = "How to play"
 horizontal_alignment = 1
 vertical_alignment = 3
 
-[node name="Objective 1" type="MarginContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
+[node name="Objective 1" type="MarginContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 
-[node name="Objective 1" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 1"]
+[node name="Objective 1" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 1"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
 text = "2. Place it on the map! "
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Objective 2" type="MarginContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
+[node name="Objective 2" type="MarginContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 
-[node name="Objective 1" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 2"]
+[node name="Objective 1" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 2"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
 text = "1. Pick a tower with sufficient dark matter points"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 2"]
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 2"]
 layout_mode = 2
 
-[node name="Objective 3" type="MarginContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
+[node name="Objective 3" type="MarginContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 
-[node name="Objective 1" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 3"]
+[node name="Objective 1" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/PanelContainer/Objective 3"]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
 text = "3. Tower auto-shoots the shadows!"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer"]
+[node name="SeparationTowerSelectPanel" type="HBoxContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel"]
-custom_minimum_size = Vector2(600, 400)
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel"]
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
+[node name="Title" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 text = "Objectives"
 horizontal_alignment = 1
 vertical_alignment = 3
 
-[node name="Objective 1" type="MarginContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
+[node name="Objective 1" type="MarginContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_right = 10
 
-[node name="Objective 1" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer/Objective 1"]
+[node name="Objective 1" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer/Objective 1"]
 layout_mode = 2
-text = "Don't let the shadows form 
-three constellations!"
+text = "Prevent the shadows from forming 
+3 constellations!"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Objective 2" type="MarginContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
+[node name="Objective 2" type="MarginContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_right = 10
 
-[node name="Objective 1" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer/Objective 2"]
+[node name="Objective 1" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer/Objective 2"]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 text = "Survive as many waves
@@ -375,57 +381,57 @@ as possible"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Objective 3" type="MarginContainer" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
+[node name="Objective 3" type="MarginContainer" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_right = 10
 
-[node name="Objective 1" type="Label" parent="Popup Menu/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer/Objective 3"]
+[node name="Objective 1" type="Label" parent="Tutorial/Tutorial2/TowerSelect/HBoxContainer/SeparationTowerSelectPanel/PanelContainer/Objective 3"]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 text = "Stop the shadows from
 connecting the stars"
 horizontal_alignment = 2
 
-[node name="Squid2" type="TextureRect" parent="Popup Menu"]
+[node name="Cursor" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
-offset_left = -190.0
-offset_top = 98.0
-offset_right = -137.0
-offset_bottom = 151.0
+offset_left = -122.0
+offset_top = 97.0
+offset_right = -69.0
+offset_bottom = 150.0
 scale = Vector2(0.41, 0.41)
 texture = ExtResource("8_l8rk8")
 expand_mode = 2
 
-[node name="Squid" type="TextureRect" parent="Popup Menu"]
+[node name="Squid" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
-offset_left = -142.0
-offset_top = 124.0
-offset_right = -87.0
-offset_bottom = 177.0
+offset_left = -84.0
+offset_top = 123.0
+offset_right = -29.0
+offset_bottom = 176.0
 scale = Vector2(0.41, 0.41)
 texture = ExtResource("9_0wya2")
 expand_mode = 2
 
-[node name="Dark Matter" type="TextureRect" parent="Popup Menu"]
+[node name="Dark Matter" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
-offset_left = -85.0
+offset_left = -33.0
 offset_top = 75.0
-offset_right = -30.0
+offset_right = 22.0
 offset_bottom = 128.0
 scale = Vector2(0.41, 0.41)
 texture = SubResource("AtlasTexture_rjri0")
 expand_mode = 2
 
-[node name="HowToPlay" type="TextureRect" parent="Popup Menu"]
+[node name="HowToPlay" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
-offset_left = -435.0
+offset_left = -328.0
 offset_top = -148.0
-offset_right = -136.0
-offset_bottom = 66.0
+offset_right = -78.0
+offset_bottom = 2.0
 texture = ExtResource("8_of5j8")
 expand_mode = 1
 
-[node name="Objectives" type="TextureRect" parent="Popup Menu"]
+[node name="Objectives" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 81.0
@@ -434,7 +440,7 @@ offset_bottom = 148.0
 texture = ExtResource("7_kt7wq")
 expand_mode = 1
 
-[node name="Star" type="TextureRect" parent="Popup Menu"]
+[node name="Star" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
 offset_left = 67.0
 offset_top = -30.0
@@ -443,7 +449,7 @@ offset_bottom = 37.0
 texture = ExtResource("10_icpyw")
 expand_mode = 1
 
-[node name="Bat Shadow" type="TextureRect" parent="Popup Menu"]
+[node name="Bat Shadow" type="TextureRect" parent="Tutorial"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = -125.0
@@ -452,7 +458,7 @@ offset_bottom = -59.0
 texture = ExtResource("9_j6scf")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="Popup Menu"]
+[node name="Gotit" type="Button" parent="Tutorial"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

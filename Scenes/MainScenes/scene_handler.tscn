@@ -89,3 +89,5 @@ mouse_filter = 2
 
 [node name="HintLabel" type="Label" parent="HintManager/Control/MarginContainer"]
 layout_mode = 2
+
+[connection signal="got_it_pressed" from="Gameplay UI" to="." method="_on_gameplay_ui_got_it_pressed"]
