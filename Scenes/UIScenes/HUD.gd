@@ -44,8 +44,8 @@ func _on_number_constellations_connected_change() -> void:
 	number_constellations_connected_label.text = str(amount_of_constellations_completed) + "/3"
 	amount_of_constellations_completed += 1
 
-func _on_wave_change(wave_num: int) -> void:
-	number_of_waves.text = str(wave_num) + "/10"
+func _on_wave_change(wave_num: int, current_number_of_waves: int) -> void:
+	number_of_waves.text = str(current_number_of_waves) + "/" + str(wave_num)
 	
 func _on_got_it_pressed() -> void:
 	got_it_pressed.emit()

@@ -9,7 +9,7 @@ one simple sentence,
 class_name WaveManager
 extends Node
 
-signal wave_changed(wave_num: int)
+signal wave_changed(wave_numbers: int,current_wave_num: int )
 signal spawning_phase_complete
 
 #Allow the default_spawn_delay to be editable
@@ -27,7 +27,7 @@ var enemies_alive_in_wave: int = 0
 # The number of waves will depend
 # on the difficulty of a single map
 # For now, we'll make it to 10
-var number_of_waves: int = 10
+var number_of_waves: int = 5
 var current_number_of_waves: int = 0
 @export var wave_data_array: Array = []
 
@@ -58,7 +58,7 @@ func start_wave() -> void:
 	# To manipulate the variables
 	# And then call the timer function again
 	current_number_of_waves += 1
-	wave_changed.emit(current_number_of_waves)
+	wave_changed.emit(number_of_waves, current_number_of_waves)
 	
 	wave_data_array.clear()
 	current_data_index = 0
