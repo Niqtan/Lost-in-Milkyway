@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	
 
 	get_path_to_position()
-	visualize_path_array(path_array)
+	#visualize_path_array(path_array)
 	$AnimatedSprite2D.play("default")
 	move_and_slide()
 

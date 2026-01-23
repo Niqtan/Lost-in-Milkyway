@@ -1,10 +1,21 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://d1y68pgcj1p8y"]
 
-[ext_resource type="FontFile" uid="uid://dgoqxn5tnmd80" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/Cinzel/static/Cinzel-Black.ttf" id="1_ye407"]
-[ext_resource type="FontFile" uid="uid://bir5du5wqihfk" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/Creepster/Creepster-Regular.ttf" id="2_wsypj"]
+[ext_resource type="FontFile" uid="uid://c83ro8qj18gaa" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/VT323/VT323-Regular.ttf" id="2_ye407"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsypj"]
+bg_color = Color(0.5764706, 0.14117648, 0.972549, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ye407"]
 bg_color = Color(0.3137255, 0.18039216, 0.5647059, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5764706, 0.14117648, 0.972549, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -19,12 +30,16 @@ corner_radius_bottom_left = 100
 
 [resource]
 Button/colors/font_color = Color(0.88483906, 0.2734668, 0.80539596, 1)
-Button/font_sizes/font_size = 10
-Button/fonts/font = ExtResource("1_ye407")
+Button/colors/font_hover_color = Color(0.5764706, 0.14117648, 0.972549, 1)
+Button/colors/font_hover_pressed_color = Color(0.5764706, 0.14117648, 0.972549, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("2_ye407")
+Button/styles/hover = SubResource("StyleBoxFlat_wsypj")
 Button/styles/normal = SubResource("StyleBoxFlat_ye407")
 Button/styles/pressed = SubResource("StyleBoxFlat_ye407")
 Label/colors/font_color = Color(1, 0.21960784, 0.8980392, 1)
 Label/constants/line_spacing = 3
-Label/font_sizes/font_size = 24
-Label/fonts/font = ExtResource("2_wsypj")
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("2_ye407")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_lvmvn")

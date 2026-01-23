@@ -8,9 +8,29 @@ extends CanvasLayer
 @onready var acknowledge_button: Button = $Tutorial/Gotit
 @onready var tutorial_page = $Tutorial
 
+@onready var archer_button = $HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer
+
+@onready var tower_rect = $HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer/Background
+@onready var tower_icon = $HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer/Archer
+@onready var dark_matter_tower_label = $HUD/TowerSelect/TowerSelect/HBoxContainer/SeparationTowerSelectPanel2/Archer/DarkMatter
+
 signal got_it_pressed
 
+func _on_archer_mouse_entered() -> void:
+	tower_rect.modulate = Color(0.5, 0.5, 0.5, 1)
+	tower_icon.modulate = Color(0.5, 0.5, 0.5, 1)
+	dark_matter_tower_label.z_index = 1
+	dark_matter_tower_label.visible = true
+
+
+func _on_archer_mouse_exited() -> void:
+	tower_rect.modulate = Color(1, 1, 1, 1)
+	tower_icon.modulate = Color(1, 1, 1, 1)
+	dark_matter_tower_label.z_index = 0
+	dark_matter_tower_label.visible = false
+	
 func _ready() -> void:
+	dark_matter_tower_label.visible = false
 	acknowledge_button.pressed.connect(_on_got_it_pressed)
 	
 	dark_matter_label.visible = true

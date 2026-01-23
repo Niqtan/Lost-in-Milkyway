@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj8030jbe5auy"]
+[gd_scene load_steps=5 format=3 uid="uid://dj8030jbe5auy"]
 
 [ext_resource type="Script" uid="uid://bmjk1ajf4a1lt" path="res://Scenes/UIScenes/game_over.gd" id="1_i3lcb"]
 [ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="2_pcfci"]
 [ext_resource type="Texture2D" uid="uid://ccthl6loouqrt" path="res://Assets/UI/Background/Main Background.png" id="3_ph6qv"]
-[ext_resource type="FontFile" uid="uid://dw32cw13uf0n0" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/Cinzel/static/Cinzel-Bold.ttf" id="4_1nfs4"]
-
-[sub_resource type="FontVariation" id="FontVariation_7ym62"]
-base_font = ExtResource("4_1nfs4")
+[ext_resource type="FontFile" uid="uid://c83ro8qj18gaa" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/VT323/VT323-Regular.ttf" id="4_pcfci"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_i3lcb")
@@ -58,8 +55,8 @@ offset_right = -166.40002
 offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = SubResource("FontVariation_7ym62")
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("4_pcfci")
+theme_override_font_sizes/font_size = 14
 text = "Washed away, by the milkyway..."
 horizontal_alignment = 1
 vertical_alignment = 1

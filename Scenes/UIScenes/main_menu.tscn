@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d4bub4mk8a35c" path="res://Scenes/UIScenes/main_menu.gd" id="1_nlt5y"]
 [ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="2_nlt5y"]
 [ext_resource type="Texture2D" uid="uid://ccthl6loouqrt" path="res://Assets/UI/Background/Main Background.png" id="3_ctc6w"]
-[ext_resource type="FontFile" uid="uid://dw32cw13uf0n0" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/Cinzel/static/Cinzel-Bold.ttf" id="4_iyrik"]
+[ext_resource type="FontFile" uid="uid://c83ro8qj18gaa" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/VT323/VT323-Regular.ttf" id="4_iyrik"]
 
 [sub_resource type="FontVariation" id="FontVariation_15g01"]
 base_font = ExtResource("4_iyrik")
@@ -13,6 +13,7 @@ script = ExtResource("1_nlt5y")
 
 [node name="Overlay" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -51,16 +52,15 @@ anchor_left = 0.29500002
 anchor_top = 0.47200003
 anchor_right = 0.70500004
 anchor_bottom = 0.5
-offset_left = 64.39996
+offset_left = -0.6000366
 offset_top = -40.496033
-offset_right = -166.40002
+offset_right = -101.400024
 offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_15g01")
-theme_override_font_sizes/font_size = 8
-text = "Lost at the eye of the milky way, with no idea how you got here. 
-Hey, let's at least explore now that you're here right? "
+theme_override_font_sizes/font_size = 16
+text = "Protect the constellations."
 horizontal_alignment = 1
 vertical_alignment = 1
 

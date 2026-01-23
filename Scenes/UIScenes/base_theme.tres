@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://h8e7w01ah62m"]
 
-[ext_resource type="FontFile" uid="uid://c7vvkw13t4y7b" path="res://Assets/fonts/SterionItalic-R99PA.ttf" id="1_iwyuk"]
+[ext_resource type="FontFile" uid="uid://dw32cw13uf0n0" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/Cinzel/static/Cinzel-Bold.ttf" id="1_iwyuk"]
 
 [resource]
 Label/fonts/font = ExtResource("1_iwyuk")
