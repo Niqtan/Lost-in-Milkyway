@@ -37,13 +37,15 @@ func change_scene(key: String) -> void:
 			add_child(current_scene)
 			
 		"game_won_scene":
-			print("you won")
 			current_scene = game_won_scene.instantiate()
-			add_child(current_scene)			
+			add_child(current_scene)	
+			AudioBus.play_sfx.emit("win", true)
+		
 		
 		"game_over_scene":
 			current_scene = game_over_scene.instantiate()
 			add_child(current_scene)
+			AudioBus.play_sfx.emit("defeat", false)
 			
 			current_scene.retry_pressed.connect(
 				func():

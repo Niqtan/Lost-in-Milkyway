@@ -22,6 +22,7 @@ Constants="*res://Singletons/constants.gd"
 GameResource="*res://Singletons/game_resource.gd"
 BackgroundMusic="*res://Scenes/MusicScenes/background_music.tscn"
 EventBus="*res://Singletons/EventBus.gd"
+AudioBus="*res://Singletons/AudioBus.gd"
 
 [display]
 

@@ -15,6 +15,7 @@ func _ready() -> void:
 
 	
 func _on_star_collected():
+	AudioBus.play_sfx.emit("first_star", true)
 	hint_manager.show_label_once("first_star", "First star is collected!")
 
 func _on_enemy_spawn(enemy: Enemy):
@@ -22,4 +23,6 @@ func _on_enemy_spawn(enemy: Enemy):
 		enemy.enemy_died.connect(_on_first_enemy_died)
 
 func _on_first_enemy_died():
+	AudioBus.play_sfx.emit("dark_matter", true)
+	AudioBus.play_sfx.emit("vanish", false)
 	hint_manager.show_label_once("first_dark_matter", "Dark matter forms...")

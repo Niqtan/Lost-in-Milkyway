@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3lsgoexojicu"
+path="res://.godot/imported/LASER SOUND EFFECT.wav-c5dbefce06183c0a8921ae0a79231e7d.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/LASER SOUND EFFECT.wav"
+dest_files=["res://.godot/imported/LASER SOUND EFFECT.wav-c5dbefce06183c0a8921ae0a79231e7d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

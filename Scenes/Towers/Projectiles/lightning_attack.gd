@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 	target.take_damage(constellation_damage)
 	
+	AudioBus.play_sfx.emit("laser", false)
 	$AnimatedSprite2D.play("strike")
 	
 	await $AnimatedSprite2D.animation_looped

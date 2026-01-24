@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6u6v2nk6h3e7"
+path="res://.godot/imported/DARK ENERGY - Sound Effect.mp3-7fabc8dd799c194f2d147df489e83eb0.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/DARK ENERGY - Sound Effect.mp3"
+dest_files=["res://.godot/imported/DARK ENERGY - Sound Effect.mp3-7fabc8dd799c194f2d147df489e83eb0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

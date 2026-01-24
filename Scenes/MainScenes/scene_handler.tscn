@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmg6aoovnep43"]
+[gd_scene load_steps=16 format=3 uid="uid://cmg6aoovnep43"]
 
 [ext_resource type="Script" uid="uid://43lpoalbkvdh" path="res://Scenes/MainScenes/scene_handler.gd" id="1_53min"]
 [ext_resource type="PackedScene" uid="uid://dyxvg21scor2q" path="res://Scenes/Maps/map_1.tscn" id="2_qjdn2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cng55yelilh2x" path="res://Scenes/UIScenes/hint_manager.tscn" id="12_mj12j"]
 [ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="14_3iupg"]
 [ext_resource type="PackedScene" uid="uid://csd468qt0aeqs" path="res://Scenes/SupportScenes/tutorial_manager.tscn" id="14_6msxg"]
+[ext_resource type="PackedScene" uid="uid://cq6nh1nnkepnc" path="res://Scenes/SupportScenes/audio_stream_player_2d.tscn" id="15_53min"]
 [ext_resource type="Script" uid="uid://dnylrwb8ngoh7" path="res://Scenes/SupportScenes/tutorial_manager.gd" id="15_fcasn"]
 
 [node name="GameHandler" type="Node" node_paths=PackedStringArray("tower_placer_manager", "highlight_tile", "building_manager")]
@@ -81,9 +82,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -33.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -91,5 +92,8 @@ mouse_filter = 2
 [node name="HintLabel" type="Label" parent="HintManager/Control/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("14_3iupg")
+theme_override_font_sizes/font_size = 20
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("15_53min")]
 
 [connection signal="got_it_pressed" from="Gameplay UI" to="." method="_on_gameplay_ui_got_it_pressed"]

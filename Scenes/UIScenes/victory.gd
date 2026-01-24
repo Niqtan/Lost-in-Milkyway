@@ -4,8 +4,6 @@ extends Control
 
 @onready var exit_button = $Container/VBoxContainer/Quit
 
-
-
 signal exit_pressed
 
 func _ready() -> void:

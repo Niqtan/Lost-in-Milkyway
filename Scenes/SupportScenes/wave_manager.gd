@@ -27,7 +27,7 @@ var enemies_alive_in_wave: int = 0
 # The number of waves will depend
 # on the difficulty of a single map
 # For now, we'll make it to 5
-var number_of_waves: int = 5
+var number_of_waves: int = 4
 var current_number_of_waves: int = 0
 @export var wave_data_array: Array = []
 
@@ -53,7 +53,6 @@ func start_wave() -> void:
 	# Basically what all we want to do here is
 	# To manipulate the variables
 	# And then call the timer function again
-	current_number_of_waves += 1
 	wave_changed.emit(number_of_waves, current_number_of_waves)
 	
 	wave_data_array.clear()
@@ -94,13 +93,14 @@ func _on_enemy_died():
 	
 	if wave_data_array.size() == 0:
 		if current_number_of_waves < number_of_waves:
+			current_number_of_waves += 1
+			
 			enemy_health += 10
 			enemy_speed += 10
 			number_of_enemies += 1
 			start_wave()
 		else:
-			# Victory scene
-			print("All waves done!")
+			print("hello!")
 			EventBus.waves_cleared.emit()
 			
 	

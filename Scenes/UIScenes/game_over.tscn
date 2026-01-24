@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj8030jbe5auy"]
+[gd_scene load_steps=7 format=3 uid="uid://dj8030jbe5auy"]
 
 [ext_resource type="Script" uid="uid://bmjk1ajf4a1lt" path="res://Scenes/UIScenes/game_over.gd" id="1_i3lcb"]
 [ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="2_pcfci"]
 [ext_resource type="Texture2D" uid="uid://ccthl6loouqrt" path="res://Assets/UI/Background/Main Background.png" id="3_ph6qv"]
 [ext_resource type="FontFile" uid="uid://c83ro8qj18gaa" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/VT323/VT323-Regular.ttf" id="4_pcfci"]
+[ext_resource type="Texture2D" uid="uid://c1i0oe55c30f5" path="res://Assets/Towers/Enemies/Void Bats/void_bats1.png" id="5_1nfs4"]
+[ext_resource type="PackedScene" uid="uid://cq6nh1nnkepnc" path="res://Scenes/SupportScenes/audio_stream_player_2d.tscn" id="6_7ym62"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_i3lcb")
@@ -82,3 +84,16 @@ text = "Retry"
 [node name="Quit" type="Button" parent="Overlay/Container/VBoxContainer"]
 layout_mode = 2
 text = "Abandon"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(633, 771)
+amount = 100
+texture = ExtResource("5_1nfs4")
+lifetime = 1.5
+emission_shape = 3
+emission_rect_extents = Vector2(780, 1)
+gravity = Vector2(-200, -980)
+scale_amount_min = 0.2
+color = Color(1, 0.21960784, 0.8980392, 1)
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_7ym62")]

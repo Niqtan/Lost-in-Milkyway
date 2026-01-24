@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://2ue7o2q0h55u"]
+[gd_scene load_steps=7 format=3 uid="uid://2ue7o2q0h55u"]
 
 [ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="1_mq272"]
 [ext_resource type="Script" uid="uid://dh5sq8mybfdx3" path="res://Scenes/UIScenes/victory.gd" id="2_0vx3s"]
 [ext_resource type="Texture2D" uid="uid://ccthl6loouqrt" path="res://Assets/UI/Background/Main Background.png" id="2_81g7v"]
 [ext_resource type="FontFile" uid="uid://c83ro8qj18gaa" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/VT323/VT323-Regular.ttf" id="3_0vx3s"]
 [ext_resource type="Texture2D" uid="uid://clejciqur5qd1" path="res://Assets/Placeholders/Star Placeholder/Star.png" id="5_0vx3s"]
+[ext_resource type="PackedScene" uid="uid://cq6nh1nnkepnc" path="res://Scenes/SupportScenes/audio_stream_player_2d.tscn" id="6_taabt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -91,3 +92,5 @@ emission_rect_extents = Vector2(780, 1)
 gravity = Vector2(-200, -980)
 scale_amount_min = 0.2
 color = Color(1, 0.21960784, 0.8980392, 1)
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_taabt")]
