@@ -49,6 +49,7 @@ func change_scene(key: String) -> void:
 			
 			current_scene.retry_pressed.connect(
 				func():
+					ConstellationManager.game_reset()
 					change_scene("game_scene")
 			)
 		

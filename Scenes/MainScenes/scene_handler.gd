@@ -7,6 +7,8 @@ extends Node
 
 @onready var wave_manager: WaveManager = $WaveManager
 
+
+@onready var path_line: Line2D = Line2D.new()
 var array_of_star_positions: Array[Vector2i] = []
 
 func _ready() -> void:
@@ -50,6 +52,11 @@ func spawn_constellation(index: int):
 	clear_current_constellation()
 	# function to clean all constellations in the scene
 	
+	add_child(path_line)
+	path_line.width = 4
+	# Color yellow
+	path_line.default_color = Color (1,1, 1)
+	
 	# Need to show first constellation only
 	# Get each position of each stars
 	var constellation = constellation_array[index]
@@ -69,13 +76,18 @@ func spawn_constellation(index: int):
 		add_child(star_instance)
 		current_constellation_stars.append(star_instance)
 		
+		path_line.add_point(path_line.to_local(star_instance.global_position))
+		
 		var world_pos = ConstellationManager.grid_to_world(star_pos)
 		var dist_sq = world_pos.distance_squared_to($SpawnPoint.global_position)
 		
 		if dist_sq < closest_dist_sq:
 			closest_dist_sq = dist_sq
 			closest_star_to_enemy = star_instance
-		
+	
+	if current_constellation_stars.size() > 1:
+		path_line.add_point(path_line.to_local(current_constellation_stars[0].global_position))
+
 	if closest_star_to_enemy:
 		current_star_index = current_constellation_stars.find(closest_star_to_enemy)
 		$StarTracker.global_position = closest_star_to_enemy.global_position

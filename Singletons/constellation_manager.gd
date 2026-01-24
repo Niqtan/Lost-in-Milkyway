@@ -17,6 +17,9 @@ var current_constellation_index: int = 0
 # Shows the occupied star positions
 var occupied_star_positions: Array[Vector2i] = []
 
+@onready var constellation_line: Line2D = Line2D.new()
+
+
 signal constellation_completed(constellation: Constellation)
 signal star_collected
 
@@ -162,6 +165,7 @@ func game_reset() -> void:
 	all_stars = []
 	constellations= []
 	occupied_star_positions= []
+	completed_count = 0
 	
 	# Also reset your dark matter resources
 	GameResource.reset_dark_matter()

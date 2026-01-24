@@ -86,23 +86,26 @@ func _on_enemy_died():
 	
 	# For now, its 50
 	GameResource.add_dark_matter(50)
+	enemies_alive_in_wave -= 1
 	
-	# This if statement checks if there are still enemies
-	if wave_data_array.size() > 0:
-		wave_data_array.remove_at(0)
-	
-	if wave_data_array.size() == 0:
-		if current_number_of_waves < number_of_waves:
-			current_number_of_waves += 1
-			
-			enemy_health += 10
-			enemy_speed += 10
-			number_of_enemies += 1
-			start_wave()
-		else:
-			print("hello!")
-			EventBus.waves_cleared.emit()
-			
+	if enemies_alive_in_wave == 0:
+		_on_wave_cleared()
+
+func _on_wave_cleared() -> void:
+	if current_number_of_waves < number_of_waves:
+		current_number_of_waves += 1
+		print(current_number_of_waves)
+		
+		enemy_health += 10
+		enemy_speed += 10
+		number_of_enemies += 1
+		
+		start_wave()
+	else:
+		await get_tree().create_timer(2.0).timeout
+		
+		await get_tree().process_frame
+		EventBus.waves_cleared.emit()
 	
 	
 
