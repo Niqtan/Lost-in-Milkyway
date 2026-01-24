@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbvcicfhlmth3"
+path="res://.godot/imported/Star Sparkle Twinkle Sound Effect (Royalty Free).mp3-7987d7568bae794a510c73e3b3d8fbc1.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Star Sparkle Twinkle Sound Effect (Royalty Free).mp3"
+dest_files=["res://.godot/imported/Star Sparkle Twinkle Sound Effect (Royalty Free).mp3-7987d7568bae794a510c73e3b3d8fbc1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -43,3 +43,11 @@ animation = &"attack"
 offset = Vector2(32, 32)
 
 [node name="LightningContainer" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(34, 47)
+color = Color(1, 0.21960784, 0.8980392, 1)
+shadow_enabled = true
+shadow_color = Color(1, 0.21960784, 0.8980392, 1)
+texture = ExtResource("2_u3ehx")
+texture_scale = 0.47

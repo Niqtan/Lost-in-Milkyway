@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmg6aoovnep43"]
+[gd_scene load_steps=15 format=3 uid="uid://cmg6aoovnep43"]
 
 [ext_resource type="Script" uid="uid://43lpoalbkvdh" path="res://Scenes/MainScenes/scene_handler.gd" id="1_53min"]
 [ext_resource type="PackedScene" uid="uid://dyxvg21scor2q" path="res://Scenes/Maps/map_1.tscn" id="2_qjdn2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvt2hqkv0iet0" path="res://Scenes/SupportScenes/tower_placer_manager.tscn" id="10_6b8lh"]
 [ext_resource type="PackedScene" uid="uid://dg6xset0g8tu6" path="res://Scenes/UIScenes/towerselect.tscn" id="10_53min"]
 [ext_resource type="PackedScene" uid="uid://cng55yelilh2x" path="res://Scenes/UIScenes/hint_manager.tscn" id="12_mj12j"]
+[ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="14_3iupg"]
 [ext_resource type="PackedScene" uid="uid://csd468qt0aeqs" path="res://Scenes/SupportScenes/tutorial_manager.tscn" id="14_6msxg"]
 [ext_resource type="Script" uid="uid://dnylrwb8ngoh7" path="res://Scenes/SupportScenes/tutorial_manager.gd" id="15_fcasn"]
 
@@ -89,5 +90,6 @@ mouse_filter = 2
 
 [node name="HintLabel" type="Label" parent="HintManager/Control/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("14_3iupg")
 
 [connection signal="got_it_pressed" from="Gameplay UI" to="." method="_on_gameplay_ui_got_it_pressed"]

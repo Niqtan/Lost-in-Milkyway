@@ -25,4 +25,4 @@ func _on_main_pressed() -> void:
 	main_pressed.emit()
 	
 func _on_exit_pressed() -> void:
-	exit_pressed.emit()
+	get_tree().quit()

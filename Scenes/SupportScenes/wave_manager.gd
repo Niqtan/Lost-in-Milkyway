@@ -26,7 +26,7 @@ var enemies_alive_in_wave: int = 0
 
 # The number of waves will depend
 # on the difficulty of a single map
-# For now, we'll make it to 10
+# For now, we'll make it to 5
 var number_of_waves: int = 5
 var current_number_of_waves: int = 0
 @export var wave_data_array: Array = []
@@ -41,11 +41,7 @@ var current_number_of_waves: int = 0
 # of enemies
 @export var enemy_type: String
 
-static var instance_count := 0
 func _ready() -> void:
-	instance_count += 1
-	print("wavemanager instance: ", instance_count)
-	print("Path: ", get_path())
 	spawn_delay = default_spawn_delay # Sets default delay to 1 second
 	enemy_spawn_timer.wait_time = spawn_delay # Configure timer
 	
@@ -97,14 +93,16 @@ func _on_enemy_died():
 		wave_data_array.remove_at(0)
 	
 	if wave_data_array.size() == 0:
-		if current_number_of_waves <= number_of_waves:
-			enemy_health += 20
-			enemy_speed += 20
+		if current_number_of_waves < number_of_waves:
+			enemy_health += 10
+			enemy_speed += 10
 			number_of_enemies += 1
 			start_wave()
 		else:
-			# You won or smth
-			print("You won!")
+			# Victory scene
+			print("All waves done!")
+			EventBus.waves_cleared.emit()
+			
 	
 	
 

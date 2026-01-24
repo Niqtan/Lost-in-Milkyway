@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c58uf1jth5ilc"
+path="res://.godot/imported/Twinkling Stars Sound Effect.mp3-e58fcea03757a0a58dfb15335863f48b.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Twinkling Stars Sound Effect.mp3"
+dest_files=["res://.godot/imported/Twinkling Stars Sound Effect.mp3-e58fcea03757a0a58dfb15335863f48b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

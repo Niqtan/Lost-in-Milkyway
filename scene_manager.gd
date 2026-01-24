@@ -6,6 +6,7 @@ extends Node
 @onready var main_menu_scene = Constants.PACKED_SCENE_PATHS.main_menu
 @onready var game_scene = Constants.PACKED_SCENE_PATHS.game_scene
 @onready var game_over_scene = Constants.PACKED_SCENE_PATHS.game_over
+@onready var game_won_scene = Constants.PACKED_SCENE_PATHS.game_won
 
 var current_scene: Node = null
 
@@ -14,7 +15,8 @@ func _ready() -> void:
 	await change_scene("main_menu")
 	
 	ConstellationManager.connect("game_is_over", change_scene.bind("game_over_scene"))
-
+	EventBus.waves_cleared.connect(change_scene.bind("game_won_scene"))
+	
 func change_scene(key: String) -> void:	
 	
 	if current_scene:
@@ -34,6 +36,10 @@ func change_scene(key: String) -> void:
 			current_scene = game_scene.instantiate()
 			add_child(current_scene)
 			
+		"game_won_scene":
+			print("you won")
+			current_scene = game_won_scene.instantiate()
+			add_child(current_scene)			
 		
 		"game_over_scene":
 			current_scene = game_over_scene.instantiate()
@@ -43,3 +49,4 @@ func change_scene(key: String) -> void:
 				func():
 					change_scene("game_scene")
 			)
+		

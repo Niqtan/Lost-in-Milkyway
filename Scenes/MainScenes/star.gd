@@ -24,7 +24,7 @@ var is_occupied: bool = false
 var occupying_enemy: Enemy = null
 
 @onready var sprite = $StarSprite
-@onready var particles = $StarSprite/Glow
+@onready var particles = $Glow
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

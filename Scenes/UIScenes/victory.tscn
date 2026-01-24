@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://2ue7o2q0h55u"]
+
+[ext_resource type="Theme" uid="uid://d1y68pgcj1p8y" path="res://Scenes/UIScenes/main_menu_theme.tres" id="1_mq272"]
+[ext_resource type="Script" uid="uid://dh5sq8mybfdx3" path="res://Scenes/UIScenes/victory.gd" id="2_0vx3s"]
+[ext_resource type="Texture2D" uid="uid://ccthl6loouqrt" path="res://Assets/UI/Background/Main Background.png" id="2_81g7v"]
+[ext_resource type="FontFile" uid="uid://c83ro8qj18gaa" path="res://Assets/Theming/Fonts/Cinzel,Creepster,Press_Start_2P,VT323/VT323/VT323-Regular.ttf" id="3_0vx3s"]
+[ext_resource type="Texture2D" uid="uid://clejciqur5qd1" path="res://Assets/Placeholders/Star Placeholder/Star.png" id="5_0vx3s"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mq272")
+script = ExtResource("2_0vx3s")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 768.0
+mouse_filter = 2
+texture = ExtResource("2_81g7v")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -120.0
+offset_right = 38.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Here lies the cosmos..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29500002
+anchor_top = 0.47200003
+anchor_right = 0.70500004
+anchor_bottom = 0.5
+offset_left = 64.39996
+offset_top = -40.496033
+offset_right = -166.40002
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0vx3s")
+theme_override_font_sizes/font_size = 14
+text = "(your next chapter awaits...)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_top = 361.0
+offset_bottom = 498.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+alignment = 2
+
+[node name="Next" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Teleport (WIP)"
+
+[node name="Quit" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+text = "Abandon"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(633, 771)
+amount = 100
+texture = ExtResource("5_0vx3s")
+lifetime = 1.5
+emission_shape = 3
+emission_rect_extents = Vector2(780, 1)
+gravity = Vector2(-200, -980)
+scale_amount_min = 0.2
+color = Color(1, 0.21960784, 0.8980392, 1)

@@ -21,6 +21,7 @@ ConstellationManager="*res://Singletons/constellation_manager.gd"
 Constants="*res://Singletons/constants.gd"
 GameResource="*res://Singletons/game_resource.gd"
 BackgroundMusic="*res://Scenes/MusicScenes/background_music.tscn"
+EventBus="*res://Singletons/EventBus.gd"
 
 [display]
 

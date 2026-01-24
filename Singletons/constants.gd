@@ -13,5 +13,6 @@ const SCENE_PATHS: Dictionary = {
 const PACKED_SCENE_PATHS := { 
 	"main_menu": preload("uid://dwqd1seu14t74"),
 	"game_scene": preload("uid://cmg6aoovnep43"),
-	"game_over": preload("uid://dj8030jbe5auy")
+	"game_over": preload("uid://dj8030jbe5auy"),
+	"game_won": preload("uid://2ue7o2q0h55u")
 }
